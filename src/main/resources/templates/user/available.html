@@ -10,6 +10,7 @@ and open the template in the editor.
 >
 <head>
     <title>MCC72</title>
+    <link href="css/cardTables.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@ and open the template in the editor.
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Penalty Card</h1>
+        <h1 class="h3 mb-0 text-gray-800">Available Asset</h1>
     </div>
 
     <!-- DataTales Example -->
@@ -27,37 +28,32 @@ and open the template in the editor.
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th></th>
+                        <th>Name :</th>
+                        <th>Position :</th>
+                        <th>Office :</th>
+                        <th>Age :</th>
+                        <th>Start date :</th>
+                        <th>Salary :</th>
+                        <th></th>
                     </tr>
                     </thead>
+
                     <tbody>
 
                     <tr>
-
-                        <td>Donna </td>
-                        <td>Customer Support</td>
-                        <td>New York</td>
-                        <td>27</td>
-                        <td>2011/01/25</td>
-                        <td>$112,000</td>
-                    </tr>
-                    <tr>
+                        <td class=" text-center"><img src="img/Support.ico" class="justify-content-center"></td>
                         <td>Donna Snider</td>
-                        <td> Snider</td>
                         <td>Customer Support</td>
                         <td>New York</td>
                         <td>27</td>
                         <td>2011/01/25</td>
                         <td>$112,000</td>
+                        <td><a th:href="@{/submissionform}"><button class="btn btn-success text-center">Rent</button></a></td>
+
                     </tr>
                     </tbody>
                 </table>
