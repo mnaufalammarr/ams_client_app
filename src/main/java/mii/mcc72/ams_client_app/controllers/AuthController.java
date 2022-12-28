@@ -43,10 +43,12 @@ public class AuthController {
     public String penaltyAdmin() {
         return "admin/penalty";
     }
-    @GetMapping("/submission-admin")
+    
+    @GetMapping("/review-submission-admin")
     public String submissionAdmin() {
-        return "admin/submission";
+        return "admin/review-submission";
     }
+
     @GetMapping("/rentreview-admin")
     public String rentReview() {
         return "admin/rent-review";
