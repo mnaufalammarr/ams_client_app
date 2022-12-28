@@ -15,13 +15,13 @@ and open the template in the editor.
     <section layout:fragment="content">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Available Asset</h1>
+            <h1 class="h3 mb-0 text-gray-800">Incoming Rent Request</h1>
         </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Rent Request</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,27 +29,24 @@ and open the template in the editor.
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Name :</th>
-                                <th>Position :</th>
-                                <th>Office :</th>
-                                <th>Age :</th>
-                                <th>Start date :</th>
-                                <th>Salary :</th>
-                                <th></th>
+                                <th>Employee Name :</th>
+                                <th>Asset :</th>
+                                <th>Start Date :</th>
+                                <th>End Date :</th>
+                                <th>Action :</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
                                 <td class="text-center"><img src="img/Support.ico" class="justify-content-center" /></td>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
+                                <td>King</td>
+                                <td>Monitor</td>
+                                <td>22 Desember 2022</td>
+                                <td>24 Desember 2022</td>
                                 <td>
-                                    <a th:href="@{/submissionform}"><button class="btn btn-success text-center">Rent</button></a>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-success text-center">Approve</button></a>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-danger text-center">Deny</button></a>
                                 </td>
                             </tr>
                         </tbody>

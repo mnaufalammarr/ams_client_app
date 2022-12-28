@@ -15,13 +15,14 @@ and open the template in the editor.
     <section layout:fragment="content">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Available Asset</h1>
+            <h1 class="h3 mb-0 text-gray-800">Submission Asset</h1>
+            <a th:href="@{/submissionform-admin}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a>
         </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Incoming Submission from Employee</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,28 +30,22 @@ and open the template in the editor.
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Name :</th>
-                                <th>Position :</th>
-                                <th>Office :</th>
-                                <th>Age :</th>
-                                <th>Start date :</th>
-                                <th>Salary :</th>
-                                <th></th>
+                                <th>Employee Name :</th>
+                                <th>Asset :</th>
+                                <th>Quantity :</th>
+                                <th>Description :</th>
+                                <th>Price :</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
                                 <td class="text-center"><img src="img/Support.ico" class="justify-content-center" /></td>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                                <td>
-                                    <a th:href="@{/submissionform}"><button class="btn btn-success text-center">Rent</button></a>
-                                </td>
+                                <td>Tom</td>
+                                <td>Kamera</td>
+                                <td>2</td>
+                                <td>For Documentation</td>
+                                <td>$20</td>
                             </tr>
                         </tbody>
                     </table>
