@@ -35,6 +35,7 @@ and open the template in the editor.
                                 <th>Quantity :</th>
                                 <th>Description :</th>
                                 <th>Price :</th>
+                                <th>Action :</th>
                             </tr>
                         </thead>
 
@@ -46,6 +47,10 @@ and open the template in the editor.
                                 <td>2</td>
                                 <td>For Documentation</td>
                                 <td>$20</td>
+                                <td>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-success text-center">Approve</button></a>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-danger text-center">Deny</button></a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
