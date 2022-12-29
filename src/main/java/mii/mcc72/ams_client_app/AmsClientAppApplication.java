@@ -8,6 +8,8 @@ public class AmsClientAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AmsClientAppApplication.class, args);
+                System.out.println("======================");
+                System.out.println("server frontend is running");
 	}
 
 }

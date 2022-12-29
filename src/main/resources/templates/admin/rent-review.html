@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/main}">
+
+<head>
+    <title>MCC72</title>
+    <link href="css/cardTables.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Incoming Rent Request</h1>
+        </div>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Rent Request</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Employee Name :</th>
+                                <th>Asset :</th>
+                                <th>Start Date :</th>
+                                <th>End Date :</th>
+                                <th>Action :</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="text-center"><img src="img/Support.ico" class="justify-content-center" /></td>
+                                <td>King</td>
+                                <td>Monitor</td>
+                                <td>22 Desember 2022</td>
+                                <td>24 Desember 2022</td>
+                                <td>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-success text-center">Approve</button></a>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-danger text-center">Deny</button></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
