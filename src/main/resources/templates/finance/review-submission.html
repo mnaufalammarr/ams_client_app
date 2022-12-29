@@ -16,13 +16,13 @@ and open the template in the editor.
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Submission Asset</h1>
-            <a th:href="@{/submissionform-admin}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a>
+            <!-- <a th:href="@{/submissionform-admin}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a> -->
         </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Incoming Submission from Employee</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Incoming Submission from Admin</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -30,7 +30,7 @@ and open the template in the editor.
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Employee Name :</th>
+                                <th>Admin Name :</th>
                                 <th>Asset :</th>
                                 <th>Quantity :</th>
                                 <th>Description :</th>
@@ -48,8 +48,8 @@ and open the template in the editor.
                                 <td>For Documentation</td>
                                 <td>$20</td>
                                 <td>
-                                    <a th:href="@{admin/submissionform}"><button class="btn btn-success text-center">Approve</button></a>
-                                    <a th:href="@{admin/submissionform}"><button class="btn btn-danger text-center">Deny</button></a>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-success text-center">Approve</button></a>
+                                    <a th:href="@{/submissionform}"><button class="btn btn-danger text-center">Deny</button></a>
                                 </td>
                             </tr>
                         </tbody>

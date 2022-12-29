@@ -69,6 +69,21 @@ public class AuthController {
         return "admin/report_form";
     }
 
+    //tes finance
+    @GetMapping("/dashboard-finance")
+    public String dashboardFinance() {
+        return "dashboard-finance";
+    }
+
+    @GetMapping("/review-submission-finance")
+    public String reviewsubmissionFinance() {
+        return "finance/review-submission";
+    }
+
+    @GetMapping("/saldo")
+    public String saldoFinance() {
+        return "finance/saldo";
+    }
     
 
 
