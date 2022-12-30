@@ -1,14 +1,16 @@
-package mii.mcc72.ams_client_app.controllers;
+package mii.mcc72.ams_client_app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AuthController {
+@RequestMapping("/v1")
+public class EmployeeController {
 
     @GetMapping("/auth")
     public String login() {
-        return "auth/auth";
+        return "login";
     }
 
     @GetMapping("/dashboard")
@@ -32,6 +34,14 @@ public class AuthController {
     public String submissionform() {
         return "user/submission_form";
     }
+    @GetMapping("/rentform")
+    public String rentform() {
+        return "user/rent_form";
+    }
+    @GetMapping("/detail_penalty")
+    public String detail_penalty() {
+        return "user/detail_penalty";
+    }
 
     // Tes Admin
     @GetMapping("/dashboard-admin")
@@ -43,7 +53,7 @@ public class AuthController {
     public String penaltyAdmin() {
         return "admin/penalty";
     }
-    
+
     @GetMapping("/review-submission-admin")
     public String submissionAdmin() {
         return "admin/review-submission";
@@ -53,7 +63,7 @@ public class AuthController {
     public String rentReview() {
         return "admin/rent-review";
     }
-    
+
     @GetMapping("/list-rent-asset")
     public String listRentAsset() {
         return "admin/list-rent-asset";
@@ -69,22 +79,7 @@ public class AuthController {
         return "admin/report_form";
     }
 
-    //tes finance
-    @GetMapping("/dashboard-finance")
-    public String dashboardFinance() {
-        return "dashboard-finance";
-    }
 
-    @GetMapping("/review-submission-finance")
-    public String reviewsubmissionFinance() {
-        return "finance/review-submission";
-    }
-
-    @GetMapping("/saldo")
-    public String saldoFinance() {
-        return "finance/saldo";
-    }
-    
 
 
 }

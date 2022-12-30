@@ -17,7 +17,7 @@
         <li class="nav-item active">
             <a class="nav-link" th:href="@{/dashboard}">
                 <i class="fas fa-fw fa-user-alt"></i>
-                <span>Ammar</span></a>
+                <span id="name" th:text="${user}"></span></a>
         </li>
 
         <!-- Divider -->
@@ -37,14 +37,14 @@
 
         <!-- Nav Item - Penalty -->
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/penalty}">
+            <a class="nav-link" th:href="@{/v1/penalty}">
                 <i class="fas fa-fw fa-dollar-sign"></i>
                 <span>Penalty</span></a>
         </li>
 
         <!-- Nav Item - Available -->
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/available}">
+            <a class="nav-link" th:href="@{/v1/available}">
                 <i class="fas fa-fw fa-cubes"></i>
                 <span>Available Asset</span></a>
 
@@ -52,7 +52,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/submission}">
+            <a class="nav-link" th:href="@{/v1/submission}">
                 <i class="fas fa-fw fa-tasks"></i>
                 <span>Submission Asset</span></a>
 
@@ -60,7 +60,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/available}">
+            <a class="nav-link" th:href="@{/v1/available}">
                 <i class="fas fa-fw fa-hourglass-half"></i>
                 <span>Rent Asset</span></a>
         </li>
