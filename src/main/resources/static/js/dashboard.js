@@ -33,4 +33,22 @@ $(document).ready(function () {
 
         }
     });
+    $.ajax({
+        method: "GET",
+        url: "/api/dashboard/submission",
+        dataType: "JSON",
+        success: result => {
+            $("#submission").text(result.length);
+            console.log(result)
+        }
+    });
+    $.ajax({
+        method: "GET",
+        url: "/api/dashboard/rent",
+        dataType: "JSON",
+        success: result => {
+            $("#rent").text(result.length);
+            console.log(result)
+        }
+    });
 });
