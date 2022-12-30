@@ -1,26 +1,31 @@
 package mii.mcc72.ams_client_app.controller;
 
+import lombok.AllArgsConstructor;
+import mii.mcc72.ams_client_app.services.PenaltyService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/v1")
+@AllArgsConstructor
 public class EmployeeController {
 
-    @GetMapping("/auth")
-    public String login() {
-        return "login";
-    }
-
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard";
-    }
+    private PenaltyService penaltyService;
 
     @GetMapping("/penalty")
-    public String penalty() {
+    public String penalty(Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
         return "user/penalty";
+    }
+    @GetMapping("/penalty/{id}")
+    public String penalty(@PathVariable int id , Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("id",id);
+        return "user/detail_penalty";
     }
     @GetMapping("/submission")
     public String submission() {
@@ -29,6 +34,10 @@ public class EmployeeController {
     @GetMapping("/available")
     public String available() {
         return "user/available";
+    }
+    @GetMapping("/rent")
+    public String rent() {
+        return "user/rent";
     }
     @GetMapping("/submissionform")
     public String submissionform() {

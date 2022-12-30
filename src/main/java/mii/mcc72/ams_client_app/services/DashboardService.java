@@ -20,22 +20,22 @@ public class DashboardService {
     private RestTemplate restTemplate;
 
     public List<Asset> getAvailable() {
-        return restTemplate.exchange("http://localhost:8088/api/v1/user/available", HttpMethod.GET,null,
+        return restTemplate.exchange("http://localhost:8088/api/v1/emp/available", HttpMethod.GET,null,
                 new ParameterizedTypeReference<List<Asset>>() {
                 }).getBody();
     }
     public List<Report> getPenalty() {
-        return restTemplate.exchange("http://localhost:8088/api/v1/user/penalty", HttpMethod.GET,null,
+        return restTemplate.exchange("http://localhost:8088/api/v1/emp/penalty", HttpMethod.GET,null,
                 new ParameterizedTypeReference<List<Report>>() {
                 }).getBody();
     }
     public List<Asset> getSubmission() {
-        return restTemplate.exchange("http://localhost:8088/api/v1/user/submission", HttpMethod.GET,null,
+        return restTemplate.exchange("http://localhost:8088/api/v1/emp/submission", HttpMethod.GET,null,
                 new ParameterizedTypeReference<List<Asset>>() {
                 }).getBody();
     }
     public List<History> getRent() {
-        return restTemplate.exchange("http://localhost:8088/api/v1/user/rent", HttpMethod.GET,null,
+        return restTemplate.exchange("http://localhost:8088/api/v1/emp/rent", HttpMethod.GET,null,
                 new ParameterizedTypeReference<List<History>>() {
                 }).getBody();
     }

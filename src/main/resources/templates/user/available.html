@@ -9,8 +9,7 @@ and open the template in the editor.
         layout:decorate="~{layout/main}"
 >
 <head>
-    <title>MCC72</title>
-    <link href="css/cardTables.css" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/cardTables.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -45,7 +44,7 @@ and open the template in the editor.
                     <tbody>
 
                     <tr>
-                        <td class=" text-center"><img src="img/Support.ico" class="justify-content-center"></td>
+                        <td class=" text-center"><img th:src="@{/img/Support.ico}" class="justify-content-center"></td>
                         <td>Donna Snider</td>
                         <td>Customer Support</td>
                         <td>New York</td>

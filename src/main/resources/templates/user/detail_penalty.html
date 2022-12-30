@@ -32,13 +32,13 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col">
                         <div class="mb-3">
-                            <label class="form-label d-flex justify-content-center"><h3 class="font-weight-bold">Nama
+                            <label class="form-label d-flex justify-content-center"><h3 class="font-weight-bold" id="namaAsset">Nama
                                 Barang</h3></label>
                             <div class="d-flex justify-content-center">
                                 <img id="pic" src="img/Support.ico" class="img-thumbnail"/>
                             </div>
                             <label class="form-label "><h3 class="font-weight-bold">Description</h3></label>
-                            <div class="mb-3">
+                            <div class="mb-3" id="description">
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -51,21 +51,29 @@ and open the template in the editor.
                         <div class="mb-3">
                             <label class="form-label"><h3 class="font-weight-bold">
                                 Rent Time Period
-                            </h3></label>
+                            </h3></label><br>
                             <label>Start Rent</label>
-                            <input type="date" id="start" class="form-control"
+                            <input type="hidden" id="idPenalty"  th:value="${id}"/>
+                            <input type="text" id="start" class="form-control"
                                    placeholder="dd-mm-yyyy" value=""
-                                   min="1997-01-01" max="2030-12-31">
+                                   min="1997-01-01" max="2030-12-31" disabled>
                             <label>End Rent</label>
-                            <input type="date" id="end" class="form-control" value=" "
-                                   min="1997-01-01" max="2030-12-31">
+                            <input type="text" id="end" class="form-control" value=" "
+                                   min="1997-01-01" max="2030-12-31" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><h3 class="font-weight-bold">
+                                Date Accident
+                            </h3></label><br>
+                            <input type="text" id="accident" class="form-control" value=" "
+                                   min="1997-01-01" max="2030-12-31" disabled>
                         </div>
                         <div class="mb-3">
                             <label class="form-label"><h3 class="font-weight-bold">
                             Penalty Reasons
                             </h3></label>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="floatingTextarea" placeholder=" "></textarea>
+                                <textarea class="form-control" id="penaltyReason" placeholder=" " disabled></textarea>
                                 <label>Note</label>
                             </div>
                         </div>
@@ -77,12 +85,13 @@ and open the template in the editor.
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp.</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <input type="text" class="form-control" id="totPenalty" aria-label="Amount (to the nearest dollar)" disabled>
                                 <div class="input-group-append">
                                     <span class="input-group-text">.00</span>
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-primary" id="btnPay" onclick="pindah('http://localhost:8089/v1/penalty/')">Back</button>
                     </div>
 
                 </div>
@@ -90,7 +99,8 @@ and open the template in the editor.
         </div>
     </div>
 </section>
-
-
+<div layout:fragment="script">
+    <script th:src="@{/js/detPenalty.js}"></script>
+</div>
 </body>
 </html>
