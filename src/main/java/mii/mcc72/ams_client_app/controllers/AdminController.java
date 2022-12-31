@@ -11,7 +11,7 @@
 
 
 
-////error jika diakses dari controller ini
+////error jika diakses dari controller ini, css js tidak terbaca
 //@Controller
 //@RequestMapping("/admin")
 //@AllArgsConstructor
