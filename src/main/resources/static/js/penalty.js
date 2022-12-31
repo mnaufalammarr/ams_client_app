@@ -17,7 +17,7 @@ $('#tablePenalty').DataTable({
         data: null,
         render: (data, type, row, meta) => {
 
-            return data[2]}
+            return dateFormat(data[2],'dd-MM-yyyy')}
     },{
         data: null,
         render: (data, type, row, meta) => {

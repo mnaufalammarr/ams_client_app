@@ -38,7 +38,7 @@ public class AuthController {
     @GetMapping("/dashboard")
     public String dashboard(Authentication authentication , Model model) {
         model.addAttribute("user",authentication.getName());
-
+        model.addAttribute("isActive", "dashboard");
         return "dashboard";
     }
 
