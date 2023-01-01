@@ -1,4 +1,4 @@
-<section th:fragment="navbar">
+<section th:fragment="navbar" xmlns="http://www.w3.org/1999/html">
     <!-- Content Wrapper -->
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion h-100" id="accordionSidebar">
@@ -68,10 +68,12 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block my-0" />
-        <li class="nav-item"  th:classappend="${isActive} == 'dashboard' ? 'active':''">
-            <a class="nav-link" href=".html">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Log Out</span></a>
+        <li class="nav-item">
+            <form th:action="@{/logout}" th:method="POST">
+<!--            <a class="nav-link" href=".html">-->
+                <button class="nav-link bg-transparent border-0"> <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Log Out</span></button>
+            </form>
         </li>
         <hr class="sidebar-divider d-none d-md-block" />
 

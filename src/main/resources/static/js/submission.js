@@ -7,8 +7,8 @@ $('#tableSubmission').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data)
-            return `<img src="${data.image}" class="card-img-top" height="300px">   `
+            console.log(data)
+            return `<img src="http://localhost:8089/img/${data.image}" class="card-img-top" height="300px">   `
         }
     },{
         data: null,

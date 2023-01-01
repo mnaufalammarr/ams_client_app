@@ -1,16 +1,24 @@
 package mii.mcc72.ams_client_app.controller;
 
 import lombok.AllArgsConstructor;
+import mii.mcc72.ams_client_app.models.Asset;
+import mii.mcc72.ams_client_app.models.Category;
 import mii.mcc72.ams_client_app.models.History;
 import mii.mcc72.ams_client_app.models.dto.RentDTO;
+import mii.mcc72.ams_client_app.models.dto.SubmissionDTO;
+import mii.mcc72.ams_client_app.services.CategoryService;
 import mii.mcc72.ams_client_app.services.EmployeeService;
+import mii.mcc72.ams_client_app.util.FileUploadUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.io.IOException;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/v1")
@@ -18,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EmployeeController {
 
     private EmployeeService employeeService;
+
+    private CategoryService categoryService;
 
     @GetMapping("/penalty")
     public String penalty(Authentication authentication , Model model) {
@@ -51,9 +61,10 @@ public class EmployeeController {
         return "user/rent";
     }
     @GetMapping("/submissionform")
-    public String submissionform(Authentication authentication,Model model) {
+    public String submissionform(SubmissionDTO submissionDTO, Authentication authentication, Model model) {
         model.addAttribute("user",authentication.getName());
         model.addAttribute("isActive", "submission");
+        model.addAttribute("categories", categoryService.getAll());
         return "user/submission_form";
     }
     @GetMapping("/rentform/{id}")
@@ -71,6 +82,17 @@ public class EmployeeController {
         rentDTO.setEmployeeId(0);
         employeeService.createRentRequest(rentDTO);
         return "redirect:/v1/rent";
+    }
+
+    @PostMapping("/submissionAsset")
+    public RedirectView submissionAsset(SubmissionDTO submissionDTO,Authentication authentication, @RequestParam("file") MultipartFile multipartFile) throws IOException {
+
+        String fileName = UUID.randomUUID().toString().substring(0,3)+"_"+submissionDTO.getName()+"_"+StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        String uploadDir = "src/main/resources/static/img/" +authentication.getName();
+        submissionDTO.setImage(authentication.getName()+"/"+fileName);
+        employeeService.createSubmissionRequest(submissionDTO);
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        return new RedirectView("/v1/submission", true);
     }
 //
 //    // Tes Admin

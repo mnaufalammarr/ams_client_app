@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import mii.mcc72.ams_client_app.models.Asset;
 import mii.mcc72.ams_client_app.models.History;
 import mii.mcc72.ams_client_app.models.dto.RentDTO;
+import mii.mcc72.ams_client_app.models.dto.SubmissionDTO;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -43,6 +44,11 @@ public class EmployeeService {
     public History createRentRequest(RentDTO rentDTO) {
         return restTemplate.exchange("http://localhost:8088/api/v1/emp/rentAsset", HttpMethod.POST,new HttpEntity<>(rentDTO),
                 new ParameterizedTypeReference<History>() {
+                }).getBody();
+    }
+    public Asset createSubmissionRequest(SubmissionDTO submissionDTO) {
+        return restTemplate.exchange("http://localhost:8088/api/v1/asset", HttpMethod.POST,new HttpEntity<>(submissionDTO),
+                new ParameterizedTypeReference<Asset>() {
                 }).getBody();
     }
 }
