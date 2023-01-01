@@ -38,4 +38,8 @@ public class RestDashboardController {
         return dashboardService.getRent();
     }
 
+    @GetMapping("/pending_assets_finance")
+    public List<Object> getPendingAssetsFinance() {
+        return dashboardService.getPendingAssetsFinance();
+    }
 }

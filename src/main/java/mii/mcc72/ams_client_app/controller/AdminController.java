@@ -1,4 +1,4 @@
-//package mii.mcc72.ams_client_app.controllers;
+package mii.mcc72.ams_client_app.controller;
 //
 //import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@
 //@RequestMapping("/admin")
 //@AllArgsConstructor
 //// @PreAuthorize("hasRole('ROLE_ADMIN')")
-//public class AdminController {
+public class AdminController {
 //
 //    @GetMapping("/dashboard")
 //    public String dashboardAdmin() {
@@ -52,4 +52,4 @@
 //    public String reportFormAdmin() {
 //        return "admin/report_form";
 //    }
-//}
+}

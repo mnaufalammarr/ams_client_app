@@ -4,17 +4,18 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/main}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout/main}">
 
 <head>
-    <title>MCC72</title>
+    <title>Dashboard Finance</title>
 </head>
 
 <body>
     <section layout:fragment="content">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Finance-Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Welcome to Finance Dashboard</h1>
         </div>
 
         <!-- Content Row -->
@@ -25,8 +26,8 @@ and open the template in the editor.
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">List Submission Asset</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">List Pending Sub Asset</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-price">0</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -34,7 +35,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="card-body bg-primary mt-3 p-0 rounded-right">
-                        <a th:href="@{/review-submission-finance}"><button class="btn btn-primary btn-block">Show More</button></a>
+                        <a th:href="@{finance/review-submission-finance}"><button class="btn btn-primary btn-block">Show More</button></a>
                     </div>
                 </div>
             </div>
@@ -45,7 +46,7 @@ and open the template in the editor.
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Saldo</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Balance</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">$300</div>
                             </div>
                             <div class="col-auto">
@@ -54,12 +55,15 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="card-body bg-success mt-3 p-0 rounded-right">
-                        <a th:href="@{/saldo}"><button class="btn btn-success btn-block">Show More</button></a>
+                        <a th:href="@{finance/balance}"><button class="btn btn-success btn-block">Show More</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <div layout:fragment="script">
+        <script th:src="@{js/dashboard-finance.js}"></script>
+    </div>
 </body>
 
 </html>
