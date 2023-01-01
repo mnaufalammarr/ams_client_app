@@ -46,7 +46,7 @@ and open the template in the editor.
                     <label class="form-label d-flex justify-content-center"><h3 class="font-weight-bold mb-0" th:text="${asset.name}">Nama
                         Barang</h3></label>
                     <div class="d-flex justify-content-center">
-                        <img id="pic" th:src="${asset.image}" class="img-thumbnail"/>
+                        <img id="pic" th:src="@{${image}}" class="img-thumbnail"/>
                     </div>
                     <label class="mt-4 mb-0"><h3 class="font-weight-bold mb-0">Description</h3></label>
                     <div class="mb-1" id="description" th:text="${asset.description}">

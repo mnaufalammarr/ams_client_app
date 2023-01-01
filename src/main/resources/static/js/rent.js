@@ -8,7 +8,7 @@ $('#tableRent').DataTable({
         data: null,
         render: (data, type, row, meta) => {
             // console.log(data)
-            return `<img src="${data.asset.image}" class="card-img-top" height="300px">   `
+            return `<img src="http://localhost:8089/img/${data.asset.image}" class="card-img-top" height="300px">   `
         }
     },{
         data: null,

@@ -41,7 +41,7 @@ public class DashboardService {
     }
 
     public List<Object> getPendingAssetsFinance() {
-        return restTemplate.exchange("http://localhost:8088/api/v1/user/assets_pending_finance", HttpMethod.GET,null,
+        return restTemplate.exchange("http://localhost:8088/api/v1/emp/assets_pending_finance", HttpMethod.GET,null,
                 new ParameterizedTypeReference<List<Object>>() {
                 }).getBody();
     }

@@ -71,9 +71,18 @@ public class EmployeeController {
     public String rentform(@PathVariable int id , RentDTO rentDTO , Authentication authentication,Model model) {
         model.addAttribute("user",authentication.getName());
         model.addAttribute("isActive", "rent");
+        model.addAttribute("image", "/img/"+employeeService.getAssetById(id).getImage());
+        model.addAttribute("asset",employeeService.getAssetById(id));
+        return "user/rent_form";
+    }
+    @GetMapping("/detSub/{id}")
+    public String detSub(@PathVariable int id , Authentication authentication,Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "rent");
+        model.addAttribute("image", "/img/"+employeeService.getAssetById(id).getImage());
         model.addAttribute("asset",employeeService.getAssetById(id));
         System.out.println(employeeService.getAssetById(id));
-        return "user/rent_form";
+        return "user/detail_submission";
     }
 
     @PostMapping("/rentAsset")

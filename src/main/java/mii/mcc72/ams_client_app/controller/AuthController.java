@@ -38,20 +38,9 @@ public class AuthController {
     @GetMapping("/dashboard")
     public String dashboard(Authentication authentication , Model model) {
         model.addAttribute("user",authentication.getName());
-
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if(auth.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_FINANCE"))){
-            return dashboardFinance();
-        }
-
         model.addAttribute("isActive", "dashboard");
 
         return "dashboard";
-    }
-
-    @GetMapping("/dashboard-finance")
-    public String dashboardFinance() {
-        return "dashboard-finance";
     }
 //
 

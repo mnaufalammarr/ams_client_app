@@ -26,7 +26,7 @@ $('#tableSubmission').DataTable({
                         <h2 class="card-title font-weight-bold">Status : </h2>
                         <h3 class="card-text font-weight-light">${status}</h3>
                         </div>
-                            <div class="d-flex justify-content-center "> <button type="button" class="btn btn-primary btn-lg mt-2" onclick="pindah('http://localhost:8089/v1/rentform/'+${data.id})">Detail</button></div>
+                            <div class="d-flex justify-content-center "> <button type="button" class="btn btn-primary btn-lg mt-2" onclick="pindah('http://localhost:8089/v1/detSub/'+${data.id})">Detail</button></div>
                     </div>
 `
 
