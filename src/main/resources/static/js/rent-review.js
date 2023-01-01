@@ -1,6 +1,6 @@
-$("#table-pending-asset").DataTable({
+$("#tb-rent-review").DataTable({
     ajax: {
-        url: "/api/pending_assets_admin",
+        url: "/api/rent-review",
         dataSrc: "",
     },
     columns: [{
@@ -62,7 +62,7 @@ function reviewReqAsset(id, value) {
                 }),
                 contentType: "application/json",
                 success: (result) => {
-                    $("#table-pending-asset").DataTable().ajax.reload();
+                    $("#tb-rent-review").DataTable().ajax.reload();
                     Swal.fire({
                         icon: "success",
                         title: "Review has been " + value,

@@ -19,6 +19,7 @@ public class DashboardService {
 
     private RestTemplate restTemplate;
 
+    //untuk employee
     public List<Asset> getAvailable() {
         return restTemplate.exchange("http://localhost:8088/api/v1/emp/available", HttpMethod.GET,null,
                 new ParameterizedTypeReference<List<Asset>>() {
@@ -39,4 +40,27 @@ public class DashboardService {
                 new ParameterizedTypeReference<List<History>>() {
                 }).getBody();
     }
+
+    //untuk admin
+    public List<Asset> getAvailableAdmin() {
+        return restTemplate.exchange("http://localhost:8088/api/v1/admin/available", HttpMethod.GET,null,
+                new ParameterizedTypeReference<List<Asset>>() {
+                }).getBody();
+    }
+    public List<Report> getPenaltyAdmin() {
+        return restTemplate.exchange("http://localhost:8088/api/v1/admin/penalty", HttpMethod.GET,null,
+                new ParameterizedTypeReference<List<Report>>() {
+                }).getBody();
+    }
+    public List<Asset> getSubmissionAdmin() {
+        return restTemplate.exchange("http://localhost:8088/api/v1/admin/submission", HttpMethod.GET,null,
+                new ParameterizedTypeReference<List<Asset>>() {
+                }).getBody();
+    }
+    public List<History> getRentAdmin() {
+        return restTemplate.exchange("http://localhost:8088/api/v1/admin/rent", HttpMethod.GET,null,
+                new ParameterizedTypeReference<List<History>>() {
+                }).getBody();
+    }
+
 }

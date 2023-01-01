@@ -2,7 +2,7 @@ $(document).ready(function() {
     console.log("document ready");
     $.ajax({
         method: "GET",
-        url: "/api/dashboard/available",
+        url: "/api/dashboard/available-admin",
         dataType: "JSON",
         success: (result) => {
             $("#available").text(result.length);
@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
     $.ajax({
         method: "GET",
-        url: "/api/dashboard/penalty",
+        url: "/api/dashboard/penalty-admin",
         dataType: "JSON",
         success: (result) => {
             let sum = 0;
@@ -21,7 +21,7 @@ $(document).ready(function() {
     });
     $.ajax({
         method: "GET",
-        url: "/api/dashboard/penalty",
+        url: "/api/dashboard/penalty-admin",
         dataType: "JSON",
         success: (result) => {
             let sum = 0;
@@ -32,7 +32,7 @@ $(document).ready(function() {
     });
     $.ajax({
         method: "GET",
-        url: "/api/dashboard/submission",
+        url: "/api/dashboard/submission-admin",
         dataType: "JSON",
         success: (result) => {
             $("#submission").text(result.length);
@@ -41,7 +41,7 @@ $(document).ready(function() {
     });
     $.ajax({
         method: "GET",
-        url: "/api/dashboard/rent",
+        url: "/api/dashboard/rent-admin",
         dataType: "JSON",
         success: (result) => {
             $("#rent").text(result.length);

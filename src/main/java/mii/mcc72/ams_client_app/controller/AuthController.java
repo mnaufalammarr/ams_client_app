@@ -38,17 +38,16 @@ public class AuthController {
     // @GetMapping("/dashboard")
     // public String dashboard(Authentication authentication , Model model) {
     //     model.addAttribute("user",authentication.getName());
-
+    //     model.addAttribute("isActive", "dashboard");
     //     return "dashboard";
     // }
 
-    //tes ke dashboard-admin
+    // tes dashboard admin
     @GetMapping("/dashboard")
     public String dashboard(Authentication authentication , Model model) {
         model.addAttribute("user",authentication.getName());
-
+        model.addAttribute("isActive", "dashboard");
         return "dashboard-admin";
     }
-    
 
 }

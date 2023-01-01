@@ -17,7 +17,8 @@ import java.util.List;
 public class RestDashboardController {
 
     private DashboardService dashboardService;
-
+    
+    //untuk employee
     @GetMapping("/available")
     public List<Asset> getAvailable() {
         return dashboardService.getAvailable();
@@ -36,6 +37,27 @@ public class RestDashboardController {
     @GetMapping("/rent")
     public List<History> getRent() {
         return dashboardService.getRent();
+    }
+
+    //untuk admin
+    @GetMapping("/available-admin")
+    public List<Asset> getAvailableAdmin() {
+        return dashboardService.getAvailableAdmin();
+    }
+
+    @GetMapping("/penalty-admin")
+    public List<Report> getPenaltyAdmin() {
+        return dashboardService.getPenaltyAdmin();
+    }
+
+    @GetMapping("/submission-admin")
+    public List<Asset> getSubmissionAdmin() {
+        return dashboardService.getSubmissionAdmin();
+    }
+
+    @GetMapping("/rent-admin")
+    public List<History> getRentAdmin() {
+        return dashboardService.getRentAdmin();
     }
 
 }

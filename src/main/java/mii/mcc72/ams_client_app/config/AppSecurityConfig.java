@@ -1,5 +1,6 @@
 package mii.mcc72.ams_client_app.config;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,7 +14,18 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .anyRequest()
+                .antMatchers("/css/**","/js/**","/img/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .successForwardUrl("/dashboard")
+                .failureForwardUrl("/login?error=true")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
                 .permitAll();
     }
 }

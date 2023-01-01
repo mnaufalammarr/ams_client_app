@@ -7,7 +7,7 @@ and open the template in the editor.
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout/main}">
 
 <head>
-    <title>Review Sub Asset By Finance</title>
+    <title>Review Sub Asset By Admin</title>
     <link th:href="@{css/cardTables.css}" rel="stylesheet" type="text/css" />
     <!-- Generate CSRF Token For AJAX -->
     <meta name="_csrf" th:content="${_csrf.token}" />
@@ -19,17 +19,17 @@ and open the template in the editor.
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Submission Asset</h1>
-            <!-- <a th:href="@{/submissionform-admin}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a> -->
+            <a th:href="@{/admin/submission-form}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a>
         </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Incoming Submission from Admin</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Incoming Submission from Employee</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tbSubmissionReview" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="table-pending-asset" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th></th>
