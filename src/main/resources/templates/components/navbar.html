@@ -1,4 +1,4 @@
-<section th:fragment="navbar">
+<section th:fragment="navbar" xmlns="http://www.w3.org/1999/html">
     <!-- Content Wrapper -->
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion h-100" id="accordionSidebar">
@@ -23,7 +23,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item" th:classappend="${isActive} == 'dashboard' ? 'active':''">
             <a class="nav-link" th:href="@{/dashboard}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
@@ -36,14 +36,15 @@
         <div class="sidebar-heading">Pages</div>
 
         <!-- Nav Item - Penalty -->
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{/v1/penalty}">
+        <li class="nav-item"  th:classappend="${isActive} == 'penalty' ? 'active':''">
+            <a class="nav-link"
+               th:href="@{/v1/penalty}">
                 <i class="fas fa-fw fa-dollar-sign"></i>
                 <span>Penalty</span></a>
         </li>
 
         <!-- Nav Item - Available -->
-        <li class="nav-item">
+        <li class="nav-item"  th:classappend="${isActive} == 'available' ? 'active':''">
             <a class="nav-link" th:href="@{/v1/available}">
                 <i class="fas fa-fw fa-cubes"></i>
                 <span>Available Asset</span></a>
@@ -51,7 +52,7 @@
             <!-- Nav Item - Submission -->
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item"  th:classappend="${isActive} == 'submission' ? 'active':''">
             <a class="nav-link" th:href="@{/v1/submission}">
                 <i class="fas fa-fw fa-tasks"></i>
                 <span>Submission Asset</span></a>
@@ -59,8 +60,8 @@
             <!-- Nav Item - Rent -->
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{/v1/available}">
+        <li class="nav-item"  th:classappend="${isActive} == 'rent' ? 'active':''">
+            <a class="nav-link" th:href="@{/v1/rent}">
                 <i class="fas fa-fw fa-hourglass-half"></i>
                 <span>Rent Asset</span></a>
         </li>
@@ -68,9 +69,11 @@
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block my-0" />
         <li class="nav-item">
-            <a class="nav-link" href=".html">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Log Out</span></a>
+            <form th:action="@{/logout}" th:method="POST">
+<!--            <a class="nav-link" href=".html">-->
+                <button class="nav-link bg-transparent border-0"> <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Log Out</span></button>
+            </form>
         </li>
         <hr class="sidebar-divider d-none d-md-block" />
 
