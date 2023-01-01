@@ -26,7 +26,7 @@ $('#tableRent').DataTable({
                             <h5 class="card-title">Start:${start}</h5>
                             <h5 class="card-title">End:${end}</h5>
                         </div>
-                            <div class="d-flex justify-content-center "> <button type="button" class="btn btn-primary btn-lg mt-2" onclick="pindah('http://localhost:8089/v1/rentform/'+${data.id})">Rent</button></div>
+<!--                            <div class="d-flex justify-content-center "> <button type="button" class="btn btn-primary btn-lg mt-2" onclick="pindah('http://localhost:8089/v1/rentform/'+${data.id})">detail</button></div>-->
                     </div>
 `
 
