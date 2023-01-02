@@ -6,9 +6,17 @@ $(document).ready(function () {
             success: result => {
                 let sum = 0;
                 $.each(result, function( index, value ) {
-                    $("#total-price").text(sum+=value.price);
+                    sum+=value.price
+                    $("#total-price").text(rupiah(sum));
                 });
 
             }
         });
 });
+
+const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR"
+    }).format(number);
+  }

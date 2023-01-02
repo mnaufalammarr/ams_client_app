@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout/main}">
 
 <head>
@@ -158,6 +159,7 @@ and open the template in the editor.
         </div>
     </section>
     <div layout:fragment="script">
+        <script th:src="@{js/dashboard-finance.js}"></script>
         <script th:src="@{js/dashboard.js}"></script>
     </div>
 </body>
