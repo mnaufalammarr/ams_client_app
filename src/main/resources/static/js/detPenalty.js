@@ -10,14 +10,21 @@ $(document).ready(function() {
             $("#namaAsset").text(`${result[0][0]}`)
             $("#pic").attr("src",`http://localhost:8089/img/${result[0][1]}`)
             $("#description").text(`${result[0][2]}`)
+//            document.getElementById('startDate').innerHTML = result[0][3];
+//            document.getElementById('endDate').innerHTML = result[0][4];
             $("#start").val(`${dateFormat(`${result[0][3]}`, 'dd-MM-yyyy')}`)
             $("#end").val(`${dateFormat(`${result[0][4]}`, 'dd-MM-yyyy')}`)
             $("#accident").val(`${dateFormat(`${result[0][5]}`, 'dd-MM-yyyy')}`)
             $("#penaltyReason").val(`${result[0][6]}`+" ,"+` ${result[0][7]}`)
-            $("#totPenalty").val(`${result[0][8]}`)
+            let convertedCost = rupiah(result[0][8])
+            document.getElementById('totPenalty').innerHTML = convertedCost;
         }
     });
 });
 
-
-// console.log('Converted date: '+ dateFormat('2021-12-10', 'MM-dd-yyyy'));
+const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR"
+    }).format(number);
+  }

@@ -18,6 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.UUID;
 
 @Controller
@@ -81,8 +83,32 @@ public class EmployeeController {
         model.addAttribute("isActive", "rent");
         model.addAttribute("image", "/img/"+employeeService.getAssetById(id).getImage());
         model.addAttribute("asset",employeeService.getAssetById(id));
+        model.addAttribute("format_price", changeFormatPriceToRupiah(employeeService.getAssetById(id).getPrice()));
+        model.addAttribute("custom_status", customPendingAssetStatus(employeeService.getAssetById(id).getApprovedStatus()));
         System.out.println(employeeService.getAssetById(id));
         return "user/detail_submission";
+    }
+
+    public String customPendingAssetStatus(String assetStatus){
+        switch(assetStatus){
+            case "PENDING_ADMIN" :
+                return "Pending acc from admin";
+            case "PENDING_FINANCE" :
+                return "Pending acc from finance";
+        }
+        return "";
+    }
+
+    public String changeFormatPriceToRupiah(int price){
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
+        return kursIndonesia.format(price);
     }
 
     @PostMapping("/rentAsset")

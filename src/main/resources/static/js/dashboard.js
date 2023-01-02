@@ -28,7 +28,8 @@ $(document).ready(function () {
         success: result => {
             let sum = 0;
             $.each(result, function( index, value ) {
-                $("#penalty").text(sum+=value.penalty);
+                sum+=value.penalty
+                $("#penalty").text(rupiah(sum));
             });
 
         }
@@ -53,3 +54,10 @@ $(document).ready(function () {
     });
 
 });
+
+const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR"
+    }).format(number);
+  }
