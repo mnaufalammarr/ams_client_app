@@ -2,6 +2,7 @@ package mii.mcc72.ams_client_app.controller.api;
 
 import lombok.AllArgsConstructor;
 import mii.mcc72.ams_client_app.models.Asset;
+import mii.mcc72.ams_client_app.models.Employee;
 import mii.mcc72.ams_client_app.models.History;
 import mii.mcc72.ams_client_app.models.Report;
 import mii.mcc72.ams_client_app.services.DashboardService;
@@ -36,6 +37,39 @@ public class RestDashboardController {
     @GetMapping("/rent")
     public List<History> getRent() {
         return dashboardService.getRent();
+    }
+//    ADMIN
+    @GetMapping("/admSubmission")
+    public List<Asset> getAdmSubmission() {
+        return dashboardService.getAdmSubmission();
+    }
+    @GetMapping("/admReqSubmission")
+    public List<Asset> getAdmReqSubmission() {
+        return dashboardService.getAdmReqSubmission();
+    }
+    @GetMapping("/admListSubmission")
+    public List<Asset> getAdmListSubmission() {
+        return dashboardService.getAdmListSubmission();
+    }
+    @GetMapping("/admRent")
+    public List<History> getAdmRent() {
+        return dashboardService.getAdmRent();
+    }
+    @GetMapping("/admReqRent")
+    public List<History> getAdmReqRent() {
+        return dashboardService.getAdmReqRent();
+    }
+    @GetMapping("/admReport")
+    public List<Report> getAdmReport() {
+        return dashboardService.getAdmReport();
+    }
+    @GetMapping("/admReturn")
+    public List<History> getAdmReturn() {
+        return dashboardService.getAdmReturn();
+    }
+    @GetMapping("/admUser")
+    public List<Employee> getAdmUser() {
+        return dashboardService.getAdmUser();
     }
 
     @GetMapping("/pending_assets_finance")

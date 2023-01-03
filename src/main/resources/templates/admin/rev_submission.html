@@ -9,7 +9,7 @@ and open the template in the editor.
         layout:decorate="~{layout/main}"
 >
 <head>
-<!--    <link th:href="@{/css/cardTables.css}" rel="stylesheet" type="text/css">-->
+    <!--    <link th:href="@{/css/cardTables.css}" rel="stylesheet" type="text/css">-->
 
 </head>
 
@@ -18,23 +18,24 @@ and open the template in the editor.
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">List Penalty from Rent Asset</h1>
+        <h1 class="h3 mb-0 text-gray-800">List Submission</h1>
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="tablePenalty" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="tableAdmRevSubmission" width="100%" cellspacing="0">
                     <thead>
                     <tr>
 
-                        <th>No</th>
-                        <th>Asset Name</th>
-                        <th>Date Accident</th>
-                        <th>Damaged Asset</th>
-                        <th>Incident</th>
-                        <th>Cost</th>
+                        <th>N0</th>
+                        <th>Nama Employee</th>
+                        <th>Nama Asset</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Created at</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -45,6 +46,6 @@ and open the template in the editor.
     </div>
 </section>
 <div layout:fragment="script">
-    <script th:src="@{/js/emp/penalty.js}"></script>
+    <script th:src="@{/js/admin/admSubmission.js}"></script>
 </div>
 </html>
