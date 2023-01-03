@@ -1,4 +1,5 @@
-<section th:fragment="navbar" xmlns="http://www.w3.org/1999/html">
+<section th:fragment="navbar" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml"
+         xmlns:sec="http://www.w3.org/1999/xhtml">
     <!-- Content Wrapper -->
     <!-- Sidebar -->
 
@@ -69,35 +70,35 @@
         </div>
         <div sec:authorize="hasRole('FINANCE')">
             <!-- Nav Item - Penalty -->
-            <li class="nav-item" th:classappend="${isActive} == 'penalty' ? 'active':''">
-                <a class="nav-link"
-                   th:href="@{/v1/penalty}">
-                    <i class="fas fa-fw fa-dollar-sign"></i>
-                    <span>Penalty</span></a>
-            </li>
+<!--            <li class="nav-item" th:classappend="${isActive} == 'penalty' ? 'active':''">-->
+<!--                <a class="nav-link"-->
+<!--                   th:href="@{/v1/penalty}">-->
+<!--                    <i class="fas fa-fw fa-dollar-sign"></i>-->
+<!--                    <span>Penalty</span></a>-->
+<!--            </li>-->
 
-            <!-- Nav Item - Available -->
-            <li class="nav-item" th:classappend="${isActive} == 'available' ? 'active':''">
-                <a class="nav-link" th:href="@{/v1/available}">
-                    <i class="fas fa-fw fa-cubes"></i>
-                    <span>Available Asset</span></a>
+<!--            &lt;!&ndash; Nav Item - Available &ndash;&gt;-->
+<!--            <li class="nav-item" th:classappend="${isActive} == 'available' ? 'active':''">-->
+<!--                <a class="nav-link" th:href="@{/v1/available}">-->
+<!--                    <i class="fas fa-fw fa-cubes"></i>-->
+<!--                    <span>Available Asset</span></a>-->
 
-                <!-- Nav Item - Submission -->
-            </li>
+<!--                &lt;!&ndash; Nav Item - Submission &ndash;&gt;-->
+<!--            </li>-->
 
-            <li class="nav-item" th:classappend="${isActive} == 'submission' ? 'active':''">
-                <a class="nav-link" th:href="@{/v1/submission}">
-                    <i class="fas fa-fw fa-tasks"></i>
-                    <span>Submission Asset</span></a>
+<!--            <li class="nav-item" th:classappend="${isActive} == 'submission' ? 'active':''">-->
+<!--                <a class="nav-link" th:href="@{/v1/submission}">-->
+<!--                    <i class="fas fa-fw fa-tasks"></i>-->
+<!--                    <span>Submission Asset</span></a>-->
 
-                <!-- Nav Item - Rent -->
-            </li>
+<!--                &lt;!&ndash; Nav Item - Rent &ndash;&gt;-->
+<!--            </li>-->
 
-            <li class="nav-item" th:classappend="${isActive} == 'rent' ? 'active':''">
-                <a class="nav-link" th:href="@{/v1/rent}">
-                    <i class="fas fa-fw fa-hourglass-half"></i>
-                    <span>Rent Asset</span></a>
-            </li>
+<!--            <li class="nav-item" th:classappend="${isActive} == 'rent' ? 'active':''">-->
+<!--                <a class="nav-link" th:href="@{/v1/rent}">-->
+<!--                    <i class="fas fa-fw fa-hourglass-half"></i>-->
+<!--                    <span>Rent Asset</span></a>-->
+<!--            </li>-->
         </div>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block my-0"/>

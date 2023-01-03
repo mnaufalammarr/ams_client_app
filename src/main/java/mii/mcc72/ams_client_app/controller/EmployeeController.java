@@ -9,6 +9,7 @@ import mii.mcc72.ams_client_app.models.dto.SubmissionDTO;
 import mii.mcc72.ams_client_app.services.CategoryService;
 import mii.mcc72.ams_client_app.services.EmployeeService;
 import mii.mcc72.ams_client_app.util.FileUploadUtil;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +21,11 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 @Controller
+@PreAuthorize("hasAnyRole('ADMIN','FINANCE','EMPLOYEE')")
 @RequestMapping("/v1")
 @AllArgsConstructor
 public class EmployeeController {
@@ -85,9 +88,16 @@ public class EmployeeController {
         model.addAttribute("asset",employeeService.getAssetById(id));
         model.addAttribute("format_price", changeFormatPriceToRupiah(employeeService.getAssetById(id).getPrice()));
         model.addAttribute("custom_status", customPendingAssetStatus(employeeService.getAssetById(id).getApprovedStatus()));
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//        String resultDate = formatter.format(employeeService.getAssetById(id).getDate());
+        String year = employeeService.getAssetById(id).getDate().substring(0,4);
+        String month = employeeService.getAssetById(id).getDate().substring(5,7);
+        String date = employeeService.getAssetById(id).getDate().substring(8,10);
+        model.addAttribute("custom_date", date + "-" + month + "-" + year);
         System.out.println(employeeService.getAssetById(id));
         return "user/detail_submission";
     }
+
 
     public String customPendingAssetStatus(String assetStatus){
         switch(assetStatus){
