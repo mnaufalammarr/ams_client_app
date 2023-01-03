@@ -11,12 +11,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.io.IOException;
 import java.util.UUID;
 
@@ -62,5 +60,15 @@ public class AdminController {
         employeeService.createSubmissionRequest(submissionDTO);
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         return new RedirectView("/admin/submission", true);
+    }
+    
+    @GetMapping("/register-finance")
+    public String registerAccountFinance(RegistrationDTO registrationDTO) {
+        return "admin/register-finance";
+    }
+    
+    @GetMapping("/register-emp")
+    public String registerAccountEmployeeView(RegistrationDTO registrationDTO) {
+        return "admin/register-emp";
     }
 }
