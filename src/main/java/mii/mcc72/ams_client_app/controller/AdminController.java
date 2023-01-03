@@ -10,46 +10,44 @@ package mii.mcc72.ams_client_app.controller;
 //
 
 
+import lombok.AllArgsConstructor;
+import mii.mcc72.ams_client_app.models.dto.LoginDTO;
+import mii.mcc72.ams_client_app.models.dto.RegistrationDTO;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-////error jika diakses dari controller ini
-//@Controller
-//@RequestMapping("/admin")
-//@AllArgsConstructor
+@Controller
+@RequestMapping("/admin")
+@AllArgsConstructor
 //// @PreAuthorize("hasRole('ROLE_ADMIN')")
 public class AdminController {
-//
-//    @GetMapping("/dashboard")
-//    public String dashboardAdmin() {
-//        return "dashboard-admin";
+    @GetMapping("/register-emp")
+    public String registerAccountEmployeeView(RegistrationDTO registrationDTO) {
+        return "admin/register-emp";
+    }
+
+    //belum tambah admin service
+//    @PostMapping("/register-emp")
+//    public String registerAccountEmployee(LoginDTO loginRequest) {
+//        if (!adminService.login(loginRequest)) {
+//            return "redirect:/login?error=true";
+//        }
+//        return "redirect:/dashboard";
 //    }
-//
-//    @GetMapping("/penalty")
-//    public String penaltyAdmin() {
-//        return "admin/penalty";
-//    }
-//    
-//    @GetMapping("/review-submission")
-//    public String submissionAdmin() {
-//        return "admin/review-submission";
-//    }
-//
-//    @GetMapping("/rentreview")
-//    public String rentReview() {
-//        return "admin/rent-review";
-//    }
-//    
-//    @GetMapping("/list-rent-asset")
-//    public String listRentAsset() {
-//        return "admin/list-rent-asset";
-//    }
-//
-//    @GetMapping("/submissionform")
-//    public String submissionFormAdmin() {
-//        return "admin/submission_form";
-//    }
-//
-//    @GetMapping("/reportform")
-//    public String reportFormAdmin() {
-//        return "admin/report_form";
+
+    @GetMapping("/register-finance")
+    public String registerAccountFinance(RegistrationDTO registrationDTO) {
+        return "admin/register-finance";
+    }
+
+    //belum tambah admin service
+//    @PostMapping("/register-emp")
+//    public String registerAccountEmployee(LoginDTO loginRequest) {
+//        if (!adminService.login(loginRequest)) {
+//            return "redirect:/login?error=true";
+//        }
+//        return "redirect:/dashboard";
 //    }
 }
