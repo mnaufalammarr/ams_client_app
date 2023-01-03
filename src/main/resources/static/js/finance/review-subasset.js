@@ -22,7 +22,10 @@ $('#table-pending-asset').DataTable({
                 },
 
                                 {
-                                                    data: 'price',
+                                                    data: null,
+                                                    render: function (data, type, row, meta) {
+                                                        return rupiah(data.price);
+                                                    }
                                                 },
                                                 {
                                                                     data: 'qty',
@@ -43,7 +46,7 @@ $('#table-pending-asset').DataTable({
 
 function reviewReqAsset(id, value) {
     Swal.fire({
-        title: 'Are you sure want to' + value + 'this asset request?',
+        title: 'Are you sure want to ' + value + ' this asset request?',
         text: "You won't be able to revert this!",
         icon: 'question',
         showCancelButton: true,
@@ -78,4 +81,11 @@ function reviewReqAsset(id, value) {
         }
     })
 }
+
+const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR"
+    }).format(number);
+  }
 

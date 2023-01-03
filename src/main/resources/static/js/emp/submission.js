@@ -8,26 +8,28 @@ $('#tableSubmission').DataTable({
         data: null,
         render: (data, type, row, meta) => {
             // console.log(data)
-            return `<img src="http://localhost:8089/img/${data.image}" class="card-img-top" height="300px">   `
+            return ` <div class="card mh-50 m-3">
+                                 <div style="width:100%; height:17rem; text-align:center">
+                                      <img src="http://localhost:8089/img/${data.image}" class="card-img-top mt-5 h-75">
+                                   </div>`
         }
     },{
         data: null,
         render: (data, type, row, meta) => {
             // console.log(data)
             var status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : data.approvedStatus;
-            return `<div class=" m-3">
-                        <div class="d-flex justify-content-between">
-                            <span class="rounded font-weight-bold" ><h5 class="card-title ">${data.category.name}</h5></span>
-                            <h5 class="card-title">Qty:${data.qty}</h5>
-                        </div>
-                        <h2 class="card-title font-weight-bold">${data.name}</h2>
-                        <h3 class="card-text font-weight-light">${data.description}</h3>
-                        <div class="d-flex justify-content-between">
-                        <h2 class="card-title font-weight-bold">Status : </h2>
-                        <h3 class="card-text font-weight-light">${status}</h3>
-                        </div>
-                            <div class="d-flex justify-content-center "> <button type="button" class="btn btn-primary btn-lg mt-2" onclick="pindah('http://localhost:8089/v1/detSub/'+${data.id})">Detail</button></div>
-                    </div>
+            return `
+                    <div class="card-body">
+                                    <h5 class="card-title">${data.name}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Quantity : ${data.qty}</h6>
+                                    <span class="badge rounded-pill text-bg-success text-uppercase text-wrap fw-semibold text-white">${data.category.name}</span>
+                                    <span class="badge rounded-pill text-bg-danger text-uppercase text-wrap fw-semibold text-white">${status}</span>
+                                    <p class="card-text description">${data.description}</p>
+                    <div class="d-flex justify-content-center align-items-end mb-3">
+                                <button type="button" class="btn btn-primary mt-2"
+                                onclick="pindah('http://localhost:8089/v1/detSub/'+${data.id})">Detail</button></div>
+                                          </div>
+                                        </div>
 `
 
         }

@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
         layout:decorate="~{layout/main}"
 >
 <head>
@@ -18,75 +18,77 @@ and open the template in the editor.
 <section layout:fragment="content">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Detail Penalty</h1>
+    <div class="d-sm-flex align-items-center justify-content-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800 mx-auto">Detail Penalty</h1>
     </div>
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 w-75 mx-auto">
         <div class="card-body">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="mb-3">
-                            <label class="form-label d-flex justify-content-center"><h3 class="font-weight-bold" id="namaAsset">Nama
-                                Barang</h3></label>
                             <div class="d-flex justify-content-center">
-                                <img id="pic" src="img/Support.ico" class="img-thumbnail w-50 h-50"/>
+                                <img id="pic" src="img/Support.ico" class="img-thumbnail w-75 h-50 rounded mx-auto my-auto align-middle d-block"/>
                             </div>
-                            <label class="form-label "><h3 class="font-weight-bold">Description</h3></label>
+                            <div class="d-flex justify-content-center"><h3 class="font-weight-bold mt-2 mb-0 text-uppercase" id="namaAsset"  style="letter-spacing: 3px;">Nama
+                                Barang</h3></div>
+                            <p class="fw-semibold mt-3 fs-4">Description</p>
                             <div class="mb-3" id="description">
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                Value description
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="mb-3">
-                            <label class="form-label"><h3 class="font-weight-bold">
+                        <div class="mb-2">
+                            <p class="fw-semibold fs-4">
                                 Rent Time Period
-                            </h3></label><br>
-                            <label>Start Rent</label>
+                            </p>
+<!--                            batas-->
+<!--                            <div class="d-flex flex-row mt-2">-->
+<!--                                <div class="d-flex flex-row mt-2">-->
+<!--                                    <p class="p-2 fw-bolder">From Date: </p>-->
+<!--                                    <p class="p-2" id="startDate">Value</p>-->
+<!--                                </div>-->
+<!--                                <div class="d-flex flex-row mt-2">-->
+<!--                                    <p class="p-2 fw-bolder">Due Date: </p>-->
+<!--                                    <p class="p-2" id="endDate">Value</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            batas-->
+                            <p for="start" class="mt-2">From Date</p>
                             <input type="hidden" id="idPenalty"  th:value="${id}"/>
                             <input type="text" id="start" class="form-control"
                                    placeholder="dd-mm-yyyy" value=""
                                    min="1997-01-01" max="2030-12-31" disabled>
-                            <label>End Rent</label>
+                            <label>Due Date</label>
                             <input type="text" id="end" class="form-control" value=" "
                                    min="1997-01-01" max="2030-12-31" disabled>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label"><h3 class="font-weight-bold">
+                            <p class="fw-semibold fs-4">
                                 Date Accident
-                            </h3></label><br>
+                            </p>
                             <input type="text" id="accident" class="form-control" value=" "
                                    min="1997-01-01" max="2030-12-31" disabled>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label"><h3 class="font-weight-bold">
+                        <div class="mb-2">
+                           <p class="fw-semibold fs-4">
                             Penalty Reasons
-                            </h3></label>
+                            </p>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="penaltyReason" placeholder=" " disabled></textarea>
                                 <label>Note</label>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label"><h3 class="font-weight-bold">
+                           <p class="fw-semibold fs-4">
                             Your Penalty
-                            </h3></label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Rp.</span>
-                                </div>
-                                <input type="text" class="form-control" id="totPenalty" aria-label="Amount (to the nearest dollar)" disabled>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">.00</span>
-                                </div>
-                            </div>
+                            </p>
+                            <p class="p-2 fw-bolder fs-4" id="totPenalty">
+                                Value Cost Penalty
+                            </p>
                         </div>
                     </div>
                         <button type="button" class="btn btn-primary" id="btnBack" onclick="pindah('http://localhost:8089/v1/penalty/')">Back</button>

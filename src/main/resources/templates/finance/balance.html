@@ -4,39 +4,114 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/main}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout/main}">
 
 <head>
-    <title>MCC72</title>
-    <link href="css/cardTables.css" rel="stylesheet" type="text/css" />
+    <title>Balance Department Page</title>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">-->
+    <link href="css/cardTables.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+            /* 5px rounded corners */
+        }
+        /* On mouse-over, add a deeper shadow */
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+        /* Add some padding inside the card container */
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .noBorder {
+            border: none !important;
+        }
+
+        img {
+            border-radius: 5px 5px 0 0;
+        }
+
+    </style>
 </head>
 
 <body>
-    <section layout:fragment="content">
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Saldo</h1>
-            <!-- <a th:href="@{/submissionform-admin}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a> -->
-        </div>
+<section layout:fragment="content">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Departments Balance</h1>
+        <!-- <a th:href="@{/submissionform-admin}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a> -->
+    </div>
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Remaining Balance</h6>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="example" width="100%" cellspacing="0">
-                        <tbody>
-                            <tr>
-                                <a><button class="btn btn-primary text-center" style="width: 15em; height: 7em"><span style="font-size: 3rem">$300</span></button></a
-                  >
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Remaining Balance</h6>
         </div>
-      </div>
-    </section>
-  </body>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td class="noBorder">
+                            <div class="card">
+                                <img src="https://bit.ly/3G7XCkL" alt="Avatar" style="width: 50%"/>
+                                <div class="container">
+                                    <h4 class="fw-semibold" id="it-balance">$700</h4>
+                                    <p>Information Technology Department</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="noBorder">
+                            <div class="card">
+                                <img src="https://bit.ly/3vuFqgn" alt="Avatar" style="width: 50%"/>
+                                <div class="container">
+                                    <h4 class="fw-semibold" id="hr-balance">$300</h4>
+                                    <p>Human Resource Department</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="noBorder">
+                            <div class="card">
+                                <img src="https://bit.ly/3G1zfoY" alt="Avatar" style="width: 50%"/>
+                                <div class="container">
+                                    <h4 class="fw-semibold" id="marketing-balance">$500</h4>
+                                    <p>Marketing</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+<!--                    <tr>-->
+                        <!--                            <td class="noBorder">-->
+                        <!--                                <div class="card">-->
+                        <!--                                    <img src="https://bit.ly/3WZaW1L" alt="Avatar" style="width: 50%" />-->
+                        <!--                                    <div class="container">-->
+                        <!--                                        <h4><b>$400</b></h4>-->
+                        <!--                                        <p>General Affair</p>-->
+                        <!--                                    </div>-->
+                        <!--                                </div>-->
+                        <!--                            </td>-->
+
+<!--                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<div layout:fragment="script">
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"-->
+<!--            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"-->
+<!--            crossorigin="anonymous"></script>-->
+    <script th:src="@{/js/finance/balance.js}"></script>
+</div>
+</body>
 </html>

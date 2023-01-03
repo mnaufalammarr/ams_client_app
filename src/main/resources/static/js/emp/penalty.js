@@ -32,7 +32,7 @@ $('#tablePenalty').DataTable({
         data: null,
         render: (data, type, row, meta) => {
 
-            return data[5]}
+            return rupiah(data[5])}
     },{
         data: null,
         render: function (data, type, row, meta) {
@@ -44,3 +44,9 @@ $('#tablePenalty').DataTable({
     }]
 })
 
+const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR"
+    }).format(number);
+  }
