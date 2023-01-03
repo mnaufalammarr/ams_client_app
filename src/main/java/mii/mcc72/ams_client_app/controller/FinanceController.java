@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 
 @Controller
+@PreAuthorize("hasRole('FINANCE')")
 @RequestMapping("finance")
 @AllArgsConstructor
 // @PreAuthorize("hasRole('ROLE_FINANCE')")
@@ -23,5 +24,10 @@ public class FinanceController {
     @GetMapping("/balance")
     public String balanceFinance() {
         return "finance/balance";
+    }
+
+    @GetMapping("/recent-review-sub")
+    public String recentReviewSubAsset() {
+        return "finance/recent-review-subasset";
     }
 }
