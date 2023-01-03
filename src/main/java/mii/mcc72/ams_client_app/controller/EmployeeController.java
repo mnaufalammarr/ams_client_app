@@ -96,7 +96,7 @@ public class EmployeeController {
     @PostMapping("/submissionAsset")
     public RedirectView submissionAsset(SubmissionDTO submissionDTO,Authentication authentication, @RequestParam("file") MultipartFile multipartFile) throws IOException {
 
-        String fileName = UUID.randomUUID().toString().substring(0,3)+"_"+submissionDTO.getName()+"_"+StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        String fileName = UUID.randomUUID().toString().substring(0,3)+"_"+StringUtils.cleanPath(multipartFile.getOriginalFilename());
         String uploadDir = "src/main/resources/static/img/" +authentication.getName();
         submissionDTO.setImage(authentication.getName()+"/"+fileName);
         employeeService.createSubmissionRequest(submissionDTO);
