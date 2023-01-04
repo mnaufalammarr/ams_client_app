@@ -1,8 +1,10 @@
 package mii.mcc72.ams_client_app.controller;
 
+import mii.mcc72.ams_client_app.models.dto.RegistrationDTO;
 import mii.mcc72.ams_client_app.models.dto.SubmissionDTO;
 import mii.mcc72.ams_client_app.services.CategoryService;
 import mii.mcc72.ams_client_app.services.EmployeeService;
+import mii.mcc72.ams_client_app.services.RegistrationService;
 import mii.mcc72.ams_client_app.util.FileUploadUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -11,14 +13,13 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.io.IOException;
 import java.util.UUID;
+import mii.mcc72.ams_client_app.models.dto.RegistrationDTO;
 
 @Controller
 @RequestMapping("/admin")
@@ -27,6 +28,8 @@ public class AdminController {
 
     private CategoryService categoryService;
     private EmployeeService employeeService;
+    private RegistrationService registrationService;
+
     @GetMapping("/submission")
     public String submission(Authentication authentication , Model model) {
         model.addAttribute("user",authentication.getName());
@@ -88,4 +91,36 @@ public class AdminController {
         model.addAttribute("isActive", "doneRent");
         return "admin/done_rent";
     }
+
+    //finance
+    @GetMapping("/register-finance")
+    public String registerAccountFinanceView(RegistrationDTO registrationDTO) {
+        return "admin/register-finance";
+    }
+
+    @PostMapping("/register-finance")
+    public String registerAccountFinance(RegistrationDTO registrationDTO) {
+        registrationService.registrationFinanceAccount(registrationDTO);
+        return "redirect:/dashboard";
+
+    }
+
+    //employee
+    @GetMapping("/register-emp")
+    public String registerAccountEmployeeView(RegistrationDTO registrationDTO) {
+        return "admin/register-emp";
+    }
+
+    @PostMapping("/register-emp")
+    public String registerAccountEmployee(RegistrationDTO registrationDTO) {
+        registrationService.registrationEmployeeAccount(registrationDTO);
+        return "redirect:/dashboard";
+    }
+
+    //list user
+    @GetMapping("/list-user")
+    public String listUser(RegistrationDTO registrationDTO) {
+        return "admin/list-user";
+    }
+
 }

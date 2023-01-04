@@ -12,8 +12,12 @@ import mii.mcc72.ams_client_app.services.AdminService;
 import mii.mcc72.ams_client_app.services.DashboardService;
 import mii.mcc72.ams_client_app.services.EmployeeService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import mii.mcc72.ams_client_app.models.User;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -68,6 +72,12 @@ public class RestAdminController {
     public ResponseData<Report> reportRent(@PathVariable("id") int id, @RequestBody ReportDTO reportDTO) {
 
         return adminService.reportRent(id, reportDTO);
+    }
+
+    //list user
+    @GetMapping("/list-user")
+    public List<User>getAllUser(){
+        return dashboardService.getAllUser();
     }
 
 }

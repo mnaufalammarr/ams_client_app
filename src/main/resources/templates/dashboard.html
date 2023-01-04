@@ -20,111 +20,107 @@ and open the template in the editor.
             <h1 class="h3 mb-0 text-gray-800">Welcome to Dashboard</h1>
         </div>
 
-        <!-- Content Row -->
-        <div class="row">
-            <!-- Penalty Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Penalty</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="penalty">Rp. 0</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            <!-- Content Row -->
+            <div class="row">
+                <!-- Penalty Card -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Penalty</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="penalty">Rp. 0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body bg-primary mt-3 p-0 rounded-right">
-                        <a th:href="@{/v1/penalty}">
-                            <button class="btn btn-primary btn-block">Show More</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Available Asset -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Available Asset
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="available">0</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-cubes fa-2x text-gray-300"></i>
-                            </div>
+                        <div class="card-body bg-primary mt-3 p-0 rounded-right">
+                            <a th:href="@{/v1/penalty}">
+                                <button class="btn btn-primary btn-block">Show More</button>
+                            </a>
                         </div>
                     </div>
-                    <div class="card-body bg-success mt-3 p-0 rounded-right">
-                        <a th:href="@{/v1/available}">
-                            <button class="btn btn-success btn-block">Show More</button>
-                        </a>
+                </div>
+
+                <!-- Available Asset -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Available Asset</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="available">0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-cubes fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body bg-success mt-3 p-0 rounded-right">
+                            <a th:href="@{/v1/available}">
+                                <button class="btn btn-success btn-block">Show More</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- List Submission Asset -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">List Submission
-                                    Asset
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="submission">0</div>
+                <!-- List Submission Asset -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">List Submission Asset</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="submission">0</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body bg-info mt-3 p-0 rounded-right">
-                        <a th:href="@{/v1/submission}">
-                            <button class="btn btn-info btn-block">Show More</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- List Rent Asset -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">List Rent Asset
+                                <div class="col-auto">
+                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="rent">0</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-hourglass-half fa-2x text-gray-300"></i>
                             </div>
                         </div>
+                        <div class="card-body bg-info mt-3 p-0 rounded-right">
+                            <a th:href="@{/v1/submission}">
+                                <button class="btn btn-info btn-block">Show More</button>
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-body bg-warning mt-3 p-0 rounded-right">
-                        <a th:href="@{/v1/rent}">
-                            <button class="btn btn-warning btn-block">Show More</button>
-                        </a>
+                </div>
+
+                <!-- List Rent Asset -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">List Rent Asset</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="rent">0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-hourglass-half fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body bg-warning mt-3 p-0 rounded-right">
+                            <a th:href="@{/v1/rent}">
+                                <button class="btn btn-warning btn-block">Show More</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--ADMIN-->
-    <div sec:authorize="hasRole('ADMIN')">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Welcome to Admin Dashboard </h1>
-        </div>
+        <!--ADMIN-->
+        <div sec:authorize="hasRole('ADMIN')">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Welcome to Admin Dashboard</h1>
+            </div>
 
         <!-- Content Row -->
         <div class="row">
@@ -294,111 +290,107 @@ and open the template in the editor.
                 </div>
             </div>
 
-            <!-- List User Asset -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-dark shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">User
+                <!-- List All User -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-dark shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">User</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="user">0</div>
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="user">0</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body bg-dark mt-3 p-0 rounded-right">
-                        <a th:href="@{/admin/user}">
-                            <button class="btn btn-dark btn-block">Show More</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--FINANCE-->
-    <div sec:authorize="hasRole('FINANCE')">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Welcome to Finance Dashboard</h1>
-        </div>
-
-        <!-- Content Row -->
-        <div class="row">
-            <!-- List Submission Asset -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">List Pending Sub
-                                    Asset
+                                <div class="col-auto">
+                                    <i class="fas fa-user fa-2x text-gray-300"></i>
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-price">0</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-cubes fa-2x text-gray-300"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body bg-primary mt-3 p-0 rounded-right">
-                        <a th:href="@{finance/review-submission-finance}">
-                            <button class="btn btn-primary btn-block">Show More</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Saldo -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Departments Balance</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-balance">$300</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                            </div>
+                        <div class="card-body bg-dark mt-3 p-0 rounded-right">
+                            <a th:href="@{/admin/list-user}">
+                                <button class="btn btn-dark btn-block">Show More</button>
+                            </a>
                         </div>
-                    </div>
-                    <div class="card-body bg-success mt-3 p-0 rounded-right">
-                        <a th:href="@{finance/balance}">
-                            <button class="btn btn-success btn-block">Show More</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-<!--            History Review Finance-->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Recent Review Sub Asset</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-recent">0</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-cubes fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body bg-warning mt-3 p-0 rounded-right">
-                        <a th:href="@{/finance/recent-review-sub}"><button class="btn btn-warning btn-block">Show More</button></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</section>
-<div layout:fragment="script">
-    <script th:src="@{js/dashboard.js}"></script>
-</div>
+        <!--FINANCE-->
+        <div sec:authorize="hasRole('FINANCE')">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Welcome to Finance Dashboard</h1>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+                <!-- List Submission Asset -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">List Pending Sub Asset</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-price">0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-cubes fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body bg-primary mt-3 p-0 rounded-right">
+                            <a th:href="@{finance/review-submission-finance}">
+                                <button class="btn btn-primary btn-block">Show More</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saldo -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Departments Balance</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-balance">$300</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body bg-success mt-3 p-0 rounded-right">
+                            <a th:href="@{finance/balance}">
+                                <button class="btn btn-success btn-block">Show More</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--            History Review Finance-->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Recent Review Sub Asset</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-recent">0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-cubes fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body bg-warning mt-3 p-0 rounded-right">
+                            <a th:href="@{/finance/recent-review-sub}"><button class="btn btn-warning btn-block">Show More</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div layout:fragment="script">
+        <script th:src="@{js/dashboard.js}"></script>
+    </div>
 </body>
 
 </html>
