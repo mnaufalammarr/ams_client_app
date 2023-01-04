@@ -1,5 +1,6 @@
 package mii.mcc72.ams_client_app.controller;
 
+import mii.mcc72.ams_client_app.models.dto.RegistrationDTO;
 import mii.mcc72.ams_client_app.models.dto.SubmissionDTO;
 import mii.mcc72.ams_client_app.services.CategoryService;
 import mii.mcc72.ams_client_app.services.EmployeeService;
