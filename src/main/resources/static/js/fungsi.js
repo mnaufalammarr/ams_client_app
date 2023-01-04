@@ -34,3 +34,10 @@ function camelize(str) {
         return index === 0 ? word.toUpperCase() : word.toLowerCase();
     }).replace(/\s+/g, '');
 }
+
+const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR"
+    }).format(number);
+}

@@ -67,9 +67,9 @@ public class DashboardService {
                 new ParameterizedTypeReference<List<History>>() {
                 }).getBody();
     }
-    public List<Report> getAdmReport() {
+    public List<Object> getAdmReport() {
         return restTemplate.exchange("http://localhost:8088/api/v1/admin/report", HttpMethod.GET,null,
-                new ParameterizedTypeReference<List<Report>>() {
+                new ParameterizedTypeReference<List<Object>>() {
                 }).getBody();
     }
     public List<History> getAdmReturn() {

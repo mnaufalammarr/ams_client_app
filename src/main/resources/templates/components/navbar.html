@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item" th:classappend="${isActive} == 'rent' ? 'active':''">
+            <li class="nav-item" th:classappend="${isActive} == 'penRent' ? 'active':(${isActive} == 'revRent' ? 'active':(${isActive} == 'repRent' ? 'active':(${isActive} == 'doneRent' ? 'active':'')))">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRent"
                    aria-expanded="true" aria-controls="collapseRent">
                     <i class="fas fa-fw fa-hourglass-half"></i>
@@ -96,10 +96,10 @@
                 <div id="collapseRent" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Rent</h6>
-                        <a class="collapse-item" href="buttons.html">Pending Rent Asset</a>
-                        <a class="collapse-item" href="cards.html">Review Rent Asset</a>
-                        <a class="collapse-item" href="cards.html">Report Rent Asset</a>
-                        <a class="collapse-item" href="cards.html">Done Rent Asset</a>
+                        <a class="collapse-item" th:href="@{/admin/penRent}" th:classappend="${isActive} == 'penRent' ? 'active':''">Pending Rent Asset</a>
+                        <a class="collapse-item" th:href="@{/admin/revRent}" th:classappend="${isActive} == 'revRent' ? 'active':''">Review Rent Asset</a>
+                        <a class="collapse-item" th:href="@{/admin/repRent}" th:classappend="${isActive} == 'repRent' ? 'active':''">Report Rent Asset</a>
+                        <a class="collapse-item" th:href="@{/admin/doneRent}" th:classappend="${isActive} == 'doneRent' ? 'active':''">Done Rent Asset</a>
                     </div>
                 </div>
             </li>
@@ -146,11 +146,9 @@
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block my-0"/>
         <li class="nav-item">
-            <form th:action="@{/logout}" th:method="POST">
                 <!--            <a class="nav-link" href=".html">-->
-                <button class="nav-link bg-transparent border-0"><i class="fas fa-fw fa-sign-out-alt"></i>
+                <button class="nav-link bg-transparent border-0" onclick="$('#logoutModal').modal('show');"><i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Log Out</span></button>
-            </form>
         </li>
         <hr class="sidebar-divider d-none d-md-block"/>
 

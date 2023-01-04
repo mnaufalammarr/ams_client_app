@@ -60,7 +60,7 @@ public class RestDashboardController {
         return dashboardService.getAdmReqRent();
     }
     @GetMapping("/admReport")
-    public List<Report> getAdmReport() {
+    public List<Object> getAdmReport() {
         return dashboardService.getAdmReport();
     }
     @GetMapping("/admReturn")

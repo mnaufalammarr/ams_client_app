@@ -20,25 +20,23 @@ and open the template in the editor.
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">List Submission</h1>
+        <h1 class="h3 mb-0 text-gray-800">List Rent</h1>
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="tableAdmPenSubmission" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="tableAdmPenRent" width="100%" cellspacing="0">
                     <thead>
                     <tr>
 
                         <th>No</th>
                         <th>Name Employee</th>
                         <th>Name Asset</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Created at</th>
-                        <th>Status</th>
+                        <th>Note</th>
+                        <th>Start at</th>
+                        <th>End at</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -51,6 +49,6 @@ and open the template in the editor.
 <div layout:fragment="script">
     <script th:src="@{/js/csrfToken.js}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script th:src="@{/js/admin/admSubmission.js}"></script>
+    <script th:src="@{/js/admin/admRent.js}"></script>
 </div>
 </html>

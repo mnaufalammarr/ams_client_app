@@ -63,4 +63,29 @@ public class AdminController {
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         return new RedirectView("/admin/submission", true);
     }
+//    RENT
+    @GetMapping("/penRent")
+    public String penRent(Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "penRent");
+        return "admin/pen_rent";
+    }
+    @GetMapping("/revRent")
+    public String revRent(Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "revRent");
+        return "admin/rev_rent";
+    }
+    @GetMapping("/repRent")
+    public String repRent(Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "repRent");
+        return "admin/rep_rent";
+    }
+    @GetMapping("/doneRent")
+    public String doneRent(Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "doneRent");
+        return "admin/done_rent";
+    }
 }

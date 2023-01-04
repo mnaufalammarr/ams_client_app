@@ -13,28 +13,27 @@ $('#tableAdmSubmission').DataTable({
     },{
         data:'name'
     },{
+        data:'description'
+    },{
         data:'qty'
     },{
-        data:'price'
+        data:null,
+        render: (data, type, row, meta) => {
+            console.log(data)
+            return rupiah(data.price)
+        }
     },{
-
         data:null,
         render: (data, type, row, meta) => {
             return dateFormat(data.date,'dd-MM-yyyy')
         }
     },{
+        data:'category.name'
+    },{
         data:null,
         render: (data, type, row, meta) => {
             var status = data.approvedStatus == "PENDING_FINANCE" ? "PENDING" : data.approvedStatus;
             return `${status}`}
-    },{
-        data: null,
-        render: function (data, type, row, meta) {
-            return ` <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailRegion" onclick="pindah('http://localhost:8089/v1/penalty/'+${data[6]})">
-                Detail
-            </button>
-            `;
-        }
     }]
 })
 $('#tableAdmPenSubmission').DataTable({
@@ -58,9 +57,14 @@ $('#tableAdmPenSubmission').DataTable({
     },{
         data:'name'
     },{
+        data:'description'
+    },{
         data:'qty'
     },{
-        data:'price'
+        data:null,
+        render: (data, type, row, meta) => {
+            return rupiah(data.price)
+        }
     },{
 
         data:null,
@@ -75,9 +79,12 @@ $('#tableAdmPenSubmission').DataTable({
     },{
         data: null,
         render: function (data, type, row, meta) {
-            return ` <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailRegion" onclick="pindah('http://localhost:8089/v1/penalty/'+${data[6]})">
-                Detail
+            return ` <button type="button" class="btn btn-labeled btn-outline-primary me-2" onclick="reviewReqAsset(${data.id},'PENDING_FINANCE')">
+                Approve
             </button>
+            <button type="button" class="btn btn-labeled btn-outline-warning me-2" onclick="reviewReqAsset(${data.id},'DENIED')">
+                           Deny
+                        </button>
             `;
         }
     }]
@@ -103,6 +110,8 @@ $('#tableAdmRevSubmission').DataTable({
     },{
         data:'name'
     },{
+        data:'description'
+    },{
         data:'qty'
     },{
         data:'price'
@@ -115,15 +124,46 @@ $('#tableAdmRevSubmission').DataTable({
     },{
         data:null,
         render: (data, type, row, meta) => {
-            var status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : data.approvedStatus;
+            var status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : (data.approvedStatus == "PENDING_FINANCE" ? "APPROVED" : data.approvedStatus);
             return `${status}`}
-    },{
-        data: null,
-        render: function (data, type, row, meta) {
-            return ` <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailRegion" onclick="pindah('http://localhost:8089/v1/penalty/'+${data[6]})">
-                Detail
-            </button>
-            `;
-        }
     }]
 })
+
+function reviewReqAsset(id, value) {
+    var status = value == "PENDING_FINANCE" ? "APPROVED" : "DENIED";
+    Swal.fire({
+        title: 'Are you sure want to ' + status + ' this asset request?',
+        text: "You won't be able to revert this!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method: "POST",
+                url: "/api/review_asset/" + id,
+                dataType: "JSON",
+                beforeSend: addCsrfToken(),
+                data: JSON.stringify({
+                    assetStatus: value,
+                }),
+                contentType: "application/json",
+                success: result => {
+                    $('#tableAdmPenSubmission').DataTable().ajax.reload()
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Review has been ' + status,
+                        width: 600,
+                        padding: '3em',
+                        color: '#716add',
+                        background: '#fff',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    })
+                }
+            })
+        }
+    })
+}
