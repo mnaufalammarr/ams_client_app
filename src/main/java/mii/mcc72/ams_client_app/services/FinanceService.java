@@ -31,6 +31,12 @@ public class FinanceService {
                 }).getBody();
     }
 
+    public Department getDepartmentById(int id) {
+        return restTemplate.exchange("http://localhost:8088/api/v1/department" + "/" + id, HttpMethod.GET, null,
+                new ParameterizedTypeReference<Department>() {
+                }).getBody();
+    }
+
     //create method get all asset
     public List<Asset> getAllRecentAssetReview() {
         return restTemplate.exchange("http://localhost:8088/api/v1/asset/recent_review", HttpMethod.GET, null,
