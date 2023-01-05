@@ -4,6 +4,7 @@ import mii.mcc72.ams_client_app.models.dto.RegistrationDTO;
 import mii.mcc72.ams_client_app.models.dto.SubmissionDTO;
 import mii.mcc72.ams_client_app.services.CategoryService;
 import mii.mcc72.ams_client_app.services.EmployeeService;
+import mii.mcc72.ams_client_app.services.FinanceService;
 import mii.mcc72.ams_client_app.services.RegistrationService;
 import mii.mcc72.ams_client_app.util.FileUploadUtil;
 import org.springframework.security.core.Authentication;
@@ -29,6 +30,7 @@ public class AdminController {
     private CategoryService categoryService;
     private EmployeeService employeeService;
     private RegistrationService registrationService;
+    private FinanceService financeService;
 
     @GetMapping("/submission")
     public String submission(Authentication authentication , Model model) {
@@ -107,7 +109,8 @@ public class AdminController {
 
     //employee
     @GetMapping("/register-emp")
-    public String registerAccountEmployeeView(RegistrationDTO registrationDTO) {
+    public String registerAccountEmployeeView(RegistrationDTO registrationDTO, Model model) {
+        model.addAttribute("departments", financeService.getAllDepartment());
         return "admin/register-emp";
     }
 
