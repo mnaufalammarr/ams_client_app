@@ -17,6 +17,9 @@ $("#list-user").DataTable({
             data: "employee.lastName",
         },
         {
+            data: "employee.phoneNumber",
+        },
+        {
             data: "username",
         },
         {

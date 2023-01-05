@@ -101,7 +101,7 @@ public class AdminController {
     @PostMapping("/register-finance")
     public String registerAccountFinance(RegistrationDTO registrationDTO) {
         registrationService.registrationFinanceAccount(registrationDTO);
-        return "redirect:/dashboard";
+        return "redirect:/admin/list-user";
 
     }
 
@@ -114,7 +114,7 @@ public class AdminController {
     @PostMapping("/register-emp")
     public String registerAccountEmployee(RegistrationDTO registrationDTO) {
         registrationService.registrationEmployeeAccount(registrationDTO);
-        return "redirect:/dashboard";
+        return "redirect:/admin/list-user";
     }
 
     //list user
