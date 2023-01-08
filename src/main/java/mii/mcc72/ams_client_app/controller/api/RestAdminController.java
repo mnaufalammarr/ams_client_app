@@ -44,7 +44,10 @@ public class RestAdminController {
     public Asset getQty(@PathVariable("id") int id) {
         return adminService.getQty(id);
     }
-
+    @GetMapping("/available")
+    public List<Asset> getAvailable() {
+        return dashboardService.getAvailable();
+    }
 //    Rent
     @GetMapping("/penRent")
     public List<History> getPenRent() {

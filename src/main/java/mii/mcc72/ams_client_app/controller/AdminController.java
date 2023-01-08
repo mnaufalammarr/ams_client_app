@@ -68,6 +68,12 @@ public class AdminController {
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         return new RedirectView("/admin/submission", true);
     }
+    @GetMapping("/available")
+    public String available(Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "available");
+        return "admin/available";
+    }
 //    RENT
     @GetMapping("/penRent")
     public String penRent(Authentication authentication , Model model) {

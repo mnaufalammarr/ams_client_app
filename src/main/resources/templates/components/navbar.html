@@ -101,6 +101,12 @@
     <!--Admin-->
     <div sec:authorize="hasRole('ADMIN')">
       <!-- Nav Item - Submission -->
+      <li class="nav-item" th:classappend="${isActive} == 'available' ? 'active':''">
+        <a class="nav-link" th:href="@{/admin/available}">
+          <i class="fas fa-fw fa-cubes"></i>
+          <span>Available Asset</span></a
+        >
+      </li>
       <li
         class="nav-item"
         th:classappend="${isActive} == 'submission' ? 'active':(${isActive} == 'penSubmission'? 'active' : (${isActive} == 'revSubmission' ?'active' :''))"

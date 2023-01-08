@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 @Controller
-@PreAuthorize("hasAnyRole('EMPLOYEE', 'ADMIN')")
+@PreAuthorize("hasRole('EMPLOYEE')")
 @RequestMapping("/v1")
 @AllArgsConstructor
 public class EmployeeController {

@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    console.log("document ready");
     $.ajax({
         method: "GET",
         url: "/api/dashboard/available",
@@ -78,6 +77,14 @@ $(document).ready(function () {
         success: result => {
             $("#SubAsset").text(result.length);
             console.log(result)
+        }
+    });
+    $.ajax({
+        method: "GET",
+        url: "/api/admin/available",
+        dataType: "JSON",
+        success: result => {
+            $("#admAvailableAsset").text(result.length);
         }
     });
     $.ajax({
