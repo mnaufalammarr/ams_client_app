@@ -20,7 +20,7 @@ public class FinanceService {
     private RestTemplate restTemplate;
 
     public ResponseData<Asset> reviewSubmissionRequest(int id, ReviewAssetDTO reviewAssetDTO) {
-        return restTemplate.exchange("http://localhost:8088/api/v1/asset/review_asset/" + id, HttpMethod.POST, new HttpEntity(reviewAssetDTO),
+        return restTemplate.exchange("http://localhost:8088/api/v1/asset/review_asset/" + id, HttpMethod.PUT, new HttpEntity(reviewAssetDTO),
                 new ParameterizedTypeReference<ResponseData<Asset>>() {
                 }).getBody();
     }

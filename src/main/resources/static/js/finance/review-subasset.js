@@ -71,7 +71,7 @@ function reviewReqAsset(idAsset, departmentBalance, assetPrice, approvedStatusVa
                     })
                 } else {
                     $.ajax({
-                        method: "POST",
+                        method: "PUT",
                         url: "/api/review_asset/" + idAsset,
                         dataType: "JSON",
                         beforeSend: addCsrfToken(),
@@ -96,7 +96,7 @@ function reviewReqAsset(idAsset, departmentBalance, assetPrice, approvedStatusVa
                 }
             } else {
                 $.ajax({
-                    method: "POST",
+                    method: "PUT",
                     url: "/api/review_asset/" + idAsset,
                     dataType: "JSON",
                     beforeSend: addCsrfToken(),

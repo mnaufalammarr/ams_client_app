@@ -274,15 +274,17 @@
     </div>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block my-0" />
+    
+    <form th:action="@{/logout}" method="post">
     <li class="nav-item">
-      <!--            <a class="nav-link" href=".html">-->
-      <button
-        class="nav-link bg-transparent border-0"
-        onclick="$('#logoutModal').modal('show');"
-      >
-        <i class="fas fa-fw fa-sign-out-alt"></i> <span>Log Out</span>
-      </button>
-    </li>
+          <button
+          type="submit"
+          class="nav-link bg-transparent border-0"
+          >
+          <i class="fas fa-fw fa-sign-out-alt"></i> <span>Log Out</span>
+        </button>
+      </li>
+    </form>
     <hr class="sidebar-divider d-none d-md-block" />
 
     <!-- Sidebar Toggler (Sidebar) -->

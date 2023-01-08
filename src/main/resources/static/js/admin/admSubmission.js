@@ -142,7 +142,7 @@ function reviewReqAsset(id, value) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                method: "POST",
+                method: "PUT",
                 url: "/api/review_asset/" + id,
                 dataType: "JSON",
                 beforeSend: addCsrfToken(),

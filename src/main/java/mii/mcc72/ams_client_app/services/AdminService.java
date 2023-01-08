@@ -28,7 +28,7 @@ public class AdminService {
                 }).getBody();
     }
     public ResponseData<History> reviewReqRent(int id , ReviewRentDTO reviewRentDTO) {
-        return restTemplate.exchange("http://localhost:8088/api/v1/history/review_rent/"+id, HttpMethod.POST,new HttpEntity<>(reviewRentDTO),
+        return restTemplate.exchange("http://localhost:8088/api/v1/history/review_rent/"+id, HttpMethod.PUT,new HttpEntity<>(reviewRentDTO),
                 new ParameterizedTypeReference<ResponseData<History>>() {
                 }).getBody();
     }

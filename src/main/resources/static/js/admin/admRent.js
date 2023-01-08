@@ -208,7 +208,7 @@ function reviewReqRent(id, value) {
                             )
                         } else {
                             $.ajax({
-                                method: "POST",
+                                method: "PUT",
                                 url: "/api/admin/reviewReqRent/" + id,
                                 dataType: "JSON",
                                 beforeSend: addCsrfToken(),
@@ -233,7 +233,7 @@ function reviewReqRent(id, value) {
                         }
                     } else {
                         $.ajax({
-                            method: "POST",
+                            method: "PUT",
                             url: "/api/admin/reviewReqRent/" + id,
                             dataType: "JSON",
                             beforeSend: addCsrfToken(),

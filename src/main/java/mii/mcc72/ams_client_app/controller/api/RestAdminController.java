@@ -63,7 +63,7 @@ public class RestAdminController {
         return dashboardService.getAdmReturn();
     }
 
-    @PostMapping("/reviewReqRent/{id}")
+    @PutMapping("/reviewReqRent/{id}")
     public ResponseData<History> reviewReqRent(@PathVariable("id") int id, @RequestBody ReviewRentDTO reviewRentDto) {
 
         return adminService.reviewReqRent(id, reviewRentDto);
