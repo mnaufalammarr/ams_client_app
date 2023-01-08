@@ -96,7 +96,10 @@ public class AdminController {
 
     //finance
     @GetMapping("/register-finance")
-    public String registerAccountFinanceView(RegistrationDTO registrationDTO) {
+
+    public String registerAccountFinanceView(RegistrationDTO registrationDTO , Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "regFinance");
         return "admin/register-finance";
     }
 
@@ -109,7 +112,9 @@ public class AdminController {
 
     //employee
     @GetMapping("/register-emp")
-    public String registerAccountEmployeeView(RegistrationDTO registrationDTO, Model model) {
+    public String registerAccountEmployeeView(RegistrationDTO registrationDTO,Authentication authentication, Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "regEmp");
         model.addAttribute("departments", financeService.getAllDepartment());
         return "admin/register-emp";
     }
@@ -122,7 +127,9 @@ public class AdminController {
 
     //list user
     @GetMapping("/list-user")
-    public String listUser(RegistrationDTO registrationDTO) {
+    public String listUser(RegistrationDTO registrationDTO ,Authentication authentication , Model model) {
+        model.addAttribute("user",authentication.getName());
+        model.addAttribute("isActive", "listUser");
         return "admin/list-user";
     }
 

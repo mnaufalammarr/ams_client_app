@@ -17,7 +17,7 @@ $('#tableSubmission').DataTable({
         data: null,
         render: (data, type, row, meta) => {
             // console.log(data)
-            var status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : data.approvedStatus;
+            var status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : data.approvedStatus == "PENDING_FINANCE" ? "PENDING" : data.approvedStatus;
             return `
                     <div class="card-body">
                                     <h5 class="card-title">${data.name}</h5>

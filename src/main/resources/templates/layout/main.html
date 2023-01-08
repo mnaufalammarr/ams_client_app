@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title th:text="${isActive}== 'dashboard' ? 'AMS - Dashboard':(${isActive}=='rent' ? 'AMS - Rent':(${isActive}=='penalty' ? 'AMS - Penalty':(${isActive}=='submission' ? 'AMS - Submission': (${isActive}=='available' ? 'AMS - Available':'AMS'))))"></title>
+    <title th:text="${isActive}== 'dashboard' ? 'AMS - Dashboard':(${isActive}=='rent' ? 'AMS - Rent':(${isActive}=='penalty' ? 'AMS - Penalty':(${isActive}=='submission' ? 'AMS - Submission': (${isActive}=='available' ? 'AMS - Available':(${isActive}=='listUser' ? 'AMS - List User' : 'AMS')))))"></title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/css/all.min.css}" rel="stylesheet" type="text/css" />

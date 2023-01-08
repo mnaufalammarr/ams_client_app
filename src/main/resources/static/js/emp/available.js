@@ -32,13 +32,20 @@ $('#tableAvailable').DataTable({
         data: null,
         render: (data, type, row, meta) => {
             // console.log(data)
-            return `<div class="d-flex justify-content-center align-items-end mb-3">
+            if (data.qty > 0) {
+                return `<div class="d-flex justify-content-center align-items-end mb-3">
             <button type="button" class="btn btn-primary mt-2"
             onclick="pindah('http://localhost:8089/v1/rentform/'+${data.id})">Rent</button></div>
                       </div>
                     </div>
 `
+            } else {
+                return `<div class="d-flex justify-content-center align-items-end mb-3">
+            <button type="button" class="btn btn-primary mt-2" disabled>Rent</button></div>
+                      </div>
+                    </div>`;
 
+            }
         }
     }]
 })

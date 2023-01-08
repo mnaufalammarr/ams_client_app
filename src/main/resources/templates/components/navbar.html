@@ -198,7 +198,7 @@
 
       <li
         class="nav-item"
-        th:classappend="${isActive} == 'createuser' ? 'active':''"
+        th:classappend="(${isActive} == 'regFinance' ? 'active':(${isActive} == 'regEmp' ? 'active':''))"
       >
         <a
           class="nav-link collapsed"
@@ -208,7 +208,7 @@
           aria-expanded="true"
           aria-controls="collapseCreate"
         >
-          <i class="fas fa-fw fa-hourglass-half"></i>
+          <i class="fas fa-fw fa-plus"></i>
           <span>Create User</span>
         </a>
         <div
@@ -219,16 +219,16 @@
         >
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Create</h6>
-            <a class="collapse-item" th:href="@{/admin/register-emp}"
+            <a class="collapse-item" th:href="@{/admin/register-emp}"  th:classappend="${isActive} == 'regEmp' ? 'active':''"
               >Create Employee</a
             >
-            <a class="collapse-item" th:href="@{/admin/register-finance}"
+            <a class="collapse-item" th:href="@{/admin/register-finance}"  th:classappend="${isActive} == 'regFinance' ? 'active':''"
               >Create Finance</a
             >
           </div>
         </div>
       </li>
-      <li class="nav-item" th:classappend="${isActive} == 'user' ? 'active':''">
+      <li class="nav-item" th:classappend="${isActive} == 'listUser' ? 'active':''">
         <a class="nav-link" th:href="@{/admin/list-user}">
           <i class="fas fa-fw fa-user"></i>
           <span>List User</span></a
@@ -239,9 +239,9 @@
     <!-- Menu Navbar Role Finance-->
     <div sec:authorize="hasRole('FINANCE')">
       <li
-        class="nav-item"
+        class="nav-item" th:classappend="${isActive} == 'revSubAsset' ? 'active':''"
       >
-        <a class="nav-link" th:href="@{finance/review-submission-finance}"
+        <a class="nav-link" th:href="@{/finance/review-submission-finance}"
           >
           <i class="fas fa-fw fa-cubes"></i>
           <span>Review Sub Asset</span></a
@@ -249,18 +249,18 @@
       </li>
 
       <li
-        class="nav-item"
+        class="nav-item"  th:classappend="${isActive} == 'balDept' ? 'active':''"
       >
-        <a class="nav-link" th:href="@{finance/balance}">
+        <a class="nav-link" th:href="@{/finance/balance}">
           <i class="fas fa-fw fa-dollar-sign"></i>
           <span>Balance Departments</span></a
         >
       </li>
 
       <li
-        class="nav-item"
+        class="nav-item" th:classappend="${isActive} == 'recRevSubAsset' ? 'active':''"
       >
-        <a class="nav-link" th:href="@{/finance/recent-review-sub}">
+        <a class="nav-link" th:href="@{/finance/recent-review-sub}" >
           <i class="fas fa-fw fa-cubes"></i>
           <span>Recent Review Sub Asset</span></a
         >
