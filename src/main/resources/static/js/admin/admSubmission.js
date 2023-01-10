@@ -169,7 +169,39 @@ $('#tableAdmRevSubmission').DataTable({
         }
     }]
 })
+$('#tableAdmAvailable').DataTable({
+    ajax: {
+        url: '/api/admin/available',
+        dataSrc: ''
 
+    },
+    columns: [{
+        data: null,
+        render: (data, type, row, meta) => {
+            console.log(data);
+            return meta.row + 1
+        }
+        },{
+            data:'name'
+        },{
+            data:'qty'
+        },{
+            data:'description'
+        },{
+            data:null,
+            render: (data, type, row, meta) => {
+                return dateFormat(data.date,'dd-MM-yyyy')
+            }
+        },{
+            data:'category.name'
+        },{
+            data:null,
+            render: (data, type, row, meta) => {
+                // console.log(data)
+                return rupiah(data.price)
+            }
+    }]
+})
 function reviewReqAsset(id, value) {
     var status = value == "PENDING_FINANCE" ? "APPROVED" : "DENIED";
     Swal.fire({
