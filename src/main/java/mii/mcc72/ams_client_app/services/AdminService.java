@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import mii.mcc72.ams_client_app.models.Asset;
 import mii.mcc72.ams_client_app.models.History;
 import mii.mcc72.ams_client_app.models.Report;
+import mii.mcc72.ams_client_app.models.User;
 import mii.mcc72.ams_client_app.models.dto.ReportDTO;
 import mii.mcc72.ams_client_app.models.dto.ResponseData;
 import mii.mcc72.ams_client_app.models.dto.ReviewAssetDTO;
@@ -35,6 +36,11 @@ public class AdminService {
     public ResponseData<Report> reportRent(int id , ReportDTO reportDTO) {
         return restTemplate.exchange("http://localhost:8088/api/v1/report/"+id, HttpMethod.PUT,new HttpEntity<>(reportDTO),
                 new ParameterizedTypeReference<ResponseData<Report>>() {
+                }).getBody();
+    }
+    public User changeStatus(int id) {
+        return restTemplate.exchange("http://localhost:8088/api/v1/admin/change-status/"+id, HttpMethod.PUT,null,
+                new ParameterizedTypeReference<User>() {
                 }).getBody();
     }
 }

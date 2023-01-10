@@ -1,10 +1,7 @@
 package mii.mcc72.ams_client_app.controller.api;
 
 import lombok.AllArgsConstructor;
-import mii.mcc72.ams_client_app.models.Asset;
-import mii.mcc72.ams_client_app.models.Employee;
-import mii.mcc72.ams_client_app.models.History;
-import mii.mcc72.ams_client_app.models.Report;
+import mii.mcc72.ams_client_app.models.*;
 import mii.mcc72.ams_client_app.services.DashboardService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,7 +65,7 @@ public class RestDashboardController {
         return dashboardService.getAdmReturn();
     }
     @GetMapping("/admUser")
-    public List<Employee> getAdmUser() {
+    public List<User> getAdmUser() {
         return dashboardService.getAdmUser();
     }
 

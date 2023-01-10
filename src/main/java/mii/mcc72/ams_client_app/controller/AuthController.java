@@ -30,7 +30,7 @@ public class AuthController {
     @PostMapping("/login")
     public String login(LoginDTO loginRequest) {
         if (!loginService.login(loginRequest)) {
-            return "redirect:/login?error=true";
+            return "redirect:/login?error";
         }
         return "redirect:/dashboard";
     }

@@ -71,13 +71,15 @@ and open the template in the editor.
                 <input
                   type="email"
                   class="form-control"
-                  id="email-emp"
                   placeholder=" "
                   th:field="*{email}"
                   required
+                  onkeyup="validateEmail()"
                 />
+
                 <label class="email-emp">Email</label>
               </div>
+              <p id="alertEmail" style="font-size: small"></p>
             </div>
             <div class="form-group">
               <div class="form-floating mb-3">
@@ -88,6 +90,7 @@ and open the template in the editor.
                   placeholder=" "
                   th:field="*{phoneNumber}"
                   required
+
                 />
                 <label class="phone-number">Phone Number</label>
               </div>
@@ -130,7 +133,7 @@ and open the template in the editor.
               </div>
             </div>
             <div class="d-flex justify-content-between">
-              <button type="submit" class="form-control btn btn-success mb-3">
+              <button type="submit" class="form-control btn btn-success mb-3" id="submitRegEmp">
                 Submit
               </button>
             </div>

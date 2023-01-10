@@ -79,8 +79,12 @@ public class RestAdminController {
 
     //list user
     @GetMapping("/list-user")
-    public List<User>getAllUser(){
-        return dashboardService.getAllUser();
+    public List<User> getAllUser(){
+        return dashboardService.getAdmUser();
     }
 
+    @PutMapping("/change-status/{id}")
+    public User changeStatus(@PathVariable("id") int id){
+        return adminService.changeStatus(id);
+    }
 }

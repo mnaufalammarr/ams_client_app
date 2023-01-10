@@ -76,9 +76,9 @@ public class DashboardService {
                 new ParameterizedTypeReference<List<History>>() {
                 }).getBody();
     }
-    public List<Employee> getAdmUser() {
+    public List<User> getAdmUser() {
         return restTemplate.exchange("http://localhost:8088/api/v1/admin/user", HttpMethod.GET,null,
-                new ParameterizedTypeReference<List<Employee>>() {
+                new ParameterizedTypeReference<List<User>>() {
                 }).getBody();
     }
 
@@ -89,9 +89,9 @@ public class DashboardService {
     }
 
     //get list all user
-    public List<User> getAllUser() {
-        return restTemplate.exchange("http://localhost:8088/api/v1/admin/list-user", HttpMethod.GET,null,
-                new ParameterizedTypeReference<List<User>>() {
-                }).getBody();
-    }
+//    public List<User> getAllUser() {
+//        return restTemplate.exchange("http://localhost:8088/api/v1/admin/list-user", HttpMethod.GET,null,
+//                new ParameterizedTypeReference<List<User>>() {
+//                }).getBody();
+//    }
 }

@@ -35,6 +35,27 @@ function camelize(str) {
     }).replace(/\s+/g, '');
 }
 
+function validateEmail()
+{
+    let x = document.getElementById("email");
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(!x.value.match(mailformat))
+    {
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById("submitReg").disabled = true;
+        document.getElementById("alertEmail").innerHTML = "Wrong Format Email";
+        document.getElementById("alertEmail").style.color = "red";
+        document.getElementById("alertEmail").style.fontStyle = "italic";
+    }
+    else
+    {
+        document.getElementById("email").style.borderColor = "green";
+        document.getElementById("submitReg").disabled = false;
+        document.getElementById("alertEmail").innerHTML = "";
+
+    }
+
+}
 const rupiah = (number)=>{
     return new Intl.NumberFormat("id-ID", {
         style: "currency",
