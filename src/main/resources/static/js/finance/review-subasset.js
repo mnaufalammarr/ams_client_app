@@ -19,13 +19,18 @@ $('#table-pending-asset').DataTable({
             data: 'name',
         },
         {
-            data: 'description',
+            data: null,
+            render: (data, type, row, meta) => {
+                return `<p style="line-height: 1.5em;
+            height: 3em;       
+            overflow: hidden; text-overflow: ellipsis">${data.description}</p>`
+            }
         },
 
         {
             data: null,
-            render: function (data, type, row, meta) {
-                return rupiah(data.price);
+            render: (data, type, row, meta) => {
+                return `<strong class="fw-bold my-auto">${rupiah(data.price)}</strong>`
             }
         },
         {
@@ -35,10 +40,10 @@ $('#table-pending-asset').DataTable({
             data: null,
             render: function (data, type, row, meta) {
                 return ` <button type="button" class="btn btn-labeled btn-outline-primary me-2" onclick="reviewReqAsset(${data.id},${data.employee.department.balance},${data.price},'APPROVED')">
-                Approve
+                <i class="fas fa-check"></i> Approve
             </button>
             <button type="button" class="btn btn-labeled btn-outline-warning me-2" onclick="reviewReqAsset(${data.id},${data.employee.department.balance},${data.price},'DENIED')">
-                           Deny
+            <i class="fas fa-xmark"></i> Deny
                         </button>
             `;
             }
@@ -122,5 +127,3 @@ function reviewReqAsset(idAsset, departmentBalance, assetPrice, approvedStatusVa
         }
     })
 }
-
-

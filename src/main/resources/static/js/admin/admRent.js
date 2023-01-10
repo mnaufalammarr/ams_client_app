@@ -7,19 +7,22 @@ $('#tableAdmPenRent').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data);
             return meta.row + 1
         }
     }, {
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data);
             return camelize(data.employee.firstName) + " " + camelize(data.employee.lastName)
         }
     }, {
         data: 'asset.name'
     }, {
-        data: 'note'
+        data: null,
+        render: (data, type, row, meta) => {
+            return `<p style="line-height: 1.5em;
+            height: 3em;       
+            overflow: hidden; text-overflow: ellipsis">${data.note}</p>`
+        }
     }, {
         data: null,
         render: (data, type, row, meta) => {
@@ -34,10 +37,10 @@ $('#tableAdmPenRent').DataTable({
         data: null,
         render: function (data, type, row, meta) {
             return ` <button type="button" class="btn btn-labeled btn-outline-primary me-2" onclick="reviewReqRent(${data.id},'APPROVED')">
-                Approve
+            <i class="fas fa-check"></i> Approve
             </button>
             <button type="button" class="btn btn-labeled btn-outline-warning me-2" onclick="reviewReqRent(${data.id},'DENIED')">
-                           Deny
+            <i class="fas fa-xmark"></i> Deny
                         </button>
             `;
         }
@@ -52,20 +55,23 @@ $('#tableAdmRevRent').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            console.log(data);
             return meta.row + 1
         }
 
     }, {
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data);
             return camelize(data.employee.firstName) + " " + camelize(data.employee.lastName)
         }
     }, {
         data: 'asset.name'
     }, {
-        data: 'note'
+        data: null,
+        render: (data, type, row, meta) => {
+            return `<p style="line-height: 1.5em;
+            height: 3em;       
+            overflow: hidden; text-overflow: ellipsis">${data.note}</p>`
+        }
     }, {
         data: null,
         render: (data, type, row, meta) => {
@@ -83,15 +89,19 @@ $('#tableAdmRevRent').DataTable({
         render: function (data, type, row, meta) {
             if (data.status == "APPROVED") {
                 return ` <button type="button" class="btn btn-labeled btn-outline-primary me-2" onclick="reviewReqRent(${data.id},'DONE')">
-                Done
+                <i class="fas fa-check"></i> Done
             </button>
-            <button type="button" class="btn btn-labeled btn-outline-warning me-2" data-bs-toggle="modal" onclick="beforeCreate(${data.id})" >Report</button>`;
+            <button type="button" class="btn btn-labeled btn-outline-warning me-2" data-bs-toggle="modal" onclick="beforeCreate(${data.id})" >
+            <i class="fas fa-flag"></i> Report
+            </button>`;
 
             } else {
                 return `<button type="button" class="btn btn-labeled btn-outline-primary me-2" disabled>
-                Done
+                <i class="fas fa-check"></i> Done
             </button>
-            <button type="button" class="btn btn-labeled btn-outline-warning me-2"  disabled>Report</button>`;
+            <button type="button" class="btn btn-labeled btn-outline-warning me-2"  disabled>
+            <i class="fas fa-flag"></i> Report
+            </button>`;
             }
         }
     }
@@ -127,7 +137,7 @@ $('#tableAdmRepRent').DataTable({
     },{
         data: null,
         render: (data, type, row, meta) => {
-            return rupiah(data[5]);
+            return `<strong class="fw-bold my-auto" style="color: red;">${rupiah(data[5])}</strong>`
         }
     },{
         data: null,
@@ -155,19 +165,22 @@ $('#tableAdmDoneRent').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data);
             return meta.row + 1
         }
     }, {
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data);
             return camelize(data.employee.firstName) + " " + camelize(data.employee.lastName)
         }
     }, {
         data: 'asset.name'
     }, {
-        data: 'note'
+        data: null,
+        render: (data, type, row, meta) => {
+            return `<p style="line-height: 1.5em;
+            height: 3em;       
+            overflow: hidden; text-overflow: ellipsis">${data.note}</p>`
+        }
     }, {
         data: null,
         render: (data, type, row, meta) => {

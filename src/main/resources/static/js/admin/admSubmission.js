@@ -7,33 +7,44 @@ $('#tableAdmSubmission').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data);
             return meta.row + 1
         }
-    },{
-        data:'name'
-    },{
-        data:'description'
-    },{
-        data:'qty'
-    },{
-        data:null,
+    }, {
+        data: 'name'
+    }, {
+        data: null,
         render: (data, type, row, meta) => {
-            console.log(data)
-            return rupiah(data.price)
+            return `<p style="line-height: 1.5em;
+            height: 3em;       
+            overflow: hidden; text-overflow: ellipsis">${data.description}</p>`
         }
-    },{
-        data:null,
+    }, {
+        data: 'qty'
+    }, {
+        data: null,
         render: (data, type, row, meta) => {
-            return dateFormat(data.date,'dd-MM-yyyy')
+            return `<strong>${rupiah(data.price)}</strong>`
         }
-    },{
-        data:'category.name'
-    },{
-        data:null,
+    }, {
+        data: null,
         render: (data, type, row, meta) => {
-            var status = data.approvedStatus == "PENDING_FINANCE" ? "PENDING" : data.approvedStatus;
-            return `${status}`}
+            return dateFormat(data.date, 'dd-MM-yyyy')
+        }
+    }, {
+        data: null,
+        render: (data, type, row, meta) => {
+            return `<span class="badge bg-info text-white">${data.category.name}</span>`
+        }
+    }, {
+        data: null,
+        render: (data, type, row, meta) => {
+            let status = data.approvedStatus == "PENDING_FINANCE" ? "PENDING" : data.approvedStatus;
+            if (status === "APPROVED") {
+                return `<span class="badge bg-success text-white">${status}</span>`
+            } else {
+                return `<span class="badge bg-warning text-white">${status}</span>`
+            }
+        }
     }]
 })
 $('#tableAdmPenSubmission').DataTable({
@@ -45,45 +56,53 @@ $('#tableAdmPenSubmission').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            console.log(data);
             return meta.row + 1
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
-            console.log(data);
             return camelize(data.employee.firstName) + " " + camelize(data.employee.lastName)
         }
-    },{
-        data:'name'
-    },{
-        data:'description'
-    },{
-        data:'qty'
-    },{
-        data:null,
+    }, {
+        data: 'name'
+    }, {
+        data: null,
         render: (data, type, row, meta) => {
-            return rupiah(data.price)
+            return `<p style="line-height: 1.5em;
+            height: 3em;       
+            overflow: hidden; text-overflow: ellipsis">${data.description}</p>`
         }
-    },{
+    }, {
+        data: 'qty'
+    }, {
+        data: null,
+        render: (data, type, row, meta) => {
+            return `<strong>${rupiah(data.price)}</strong>`
+        }
+    }, {
 
-        data:null,
+        data: null,
         render: (data, type, row, meta) => {
-            return dateFormat(data.date,'dd-MM-yyyy')
+            return dateFormat(data.date, 'dd-MM-yyyy')
         }
-    },{
-        data:null,
+    }, {
+        data: null,
         render: (data, type, row, meta) => {
-            var status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : data.approvedStatus;
-            return `${status}`}
-    },{
+            let status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : data.approvedStatus;
+            if (status === "APPROVED") {
+                return `<span class="badge bg-success text-white">${status}</span>`
+            } else {
+                return `<span class="badge bg-warning text-white">${status}</span>`
+            }
+        }
+    }, {
         data: null,
         render: function (data, type, row, meta) {
-            return ` <button type="button" class="btn btn-labeled btn-outline-primary me-2" onclick="reviewReqAsset(${data.id},'PENDING_FINANCE')">
-                Approve
+            return ` <button type="button" class="btn btn-outline-primary" onclick="reviewReqAsset(${data.id},'PENDING_FINANCE')">
+            <i class="fas fa-check"></i> Approve
             </button>
-            <button type="button" class="btn btn-labeled btn-outline-warning me-2" onclick="reviewReqAsset(${data.id},'DENIED')">
-                           Deny
+            <button type="button" class="btn btn-outline-warning" onclick="reviewReqAsset(${data.id},'DENIED')">
+            <i class="fas fa-xmark"></i> Deny
                         </button>
             `;
         }
@@ -98,34 +117,56 @@ $('#tableAdmRevSubmission').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            console.log(data);
             return meta.row + 1
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
-            console.log(data);
             return camelize(data.employee.firstName) + " " + camelize(data.employee.lastName)
         }
-    },{
-        data:'name'
-    },{
-        data:'description'
-    },{
-        data:'qty'
-    },{
-        data:'price'
-    },{
-
-        data:null,
+    }, {
+        data: 'name'
+    }, {
+        data: null,
         render: (data, type, row, meta) => {
-            return dateFormat(data.date,'dd-MM-yyyy')
+            return `<p style="line-height: 1.5em;
+            height: 3em;       
+            overflow: hidden; text-overflow: ellipsis">${data.description}</p>`
         }
-    },{
-        data:null,
+    }, {
+        data: 'qty'
+    }, {
+        data: null,
         render: (data, type, row, meta) => {
-            var status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : (data.approvedStatus == "PENDING_FINANCE" ? "APPROVED" : data.approvedStatus);
-            return `${status}`}
+            return `<strong>${rupiah(data.price)}</strong>`
+        }
+    }, {
+
+        data: null,
+        render: (data, type, row, meta) => {
+            return dateFormat(data.date, 'dd-MM-yyyy')
+        }
+    }, {
+        data: null,
+        render: (data, type, row, meta) => {
+            let status = "";
+            switch (data.approvedStatus) {
+                case "PENDING_ADMIN":
+                    status = "PENDING"
+                    break;
+                case "PENDING_FINANCE":
+                    status = "APPROVED"
+                    break;
+                    default :
+                    status = data.approvedStatus
+            }
+            // let status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : (data.approvedStatus == "PENDING_FINANCE" ? "APPROVED" : data.approvedStatus);
+            if (status === "APPROVED") {
+                return `<span class="badge bg-success text-white">${status}</span>`
+            } else {
+                return `<span class="badge bg-warning text-white">${status}</span>`
+            }
+        }
     }]
 })
 

@@ -4,55 +4,61 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layout/main}">
-
-<head>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.w3.org/1999/xhtml"
+  layout:decorate="~{layout/main}"
+>
+  <head>
     <title>Review Sub Asset By Finance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
     <link th:href="@{css/cardTables.css}" rel="stylesheet" type="text/css" />
     <!-- Generate CSRF Token For AJAX -->
-    <meta name="_csrf" th:content="${_csrf.token}"/>
-    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
-</head>
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+  </head>
 
-<body>
+  <body>
     <section layout:fragment="content">
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Submission Asset</h1>
-            <!-- <a th:href="@{/submissionform-admin}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Submission Asset</a> -->
-        </div>
+      <!-- Page Heading -->
+      <div class="d-sm-flex align-items-center justify-content-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Submission Asset</h1>
+      </div>
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Incoming Submission from Admin</h6>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="table-pending-asset" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Employee</th>
-                                <th>Department</th>
-                                <th>Asset Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
+      <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">
+            Incoming Submission
+          </h6>
         </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table
+              class="table table-striped table-bordered table-light"
+              id="table-pending-asset"
+            >
+              <thead>
+                <tr class="table-info">
+                  <th class="fw-bold">No</th>
+                  <th class="fw-bold">Employee</th>
+                  <th class="fw-bold">Department</th>
+                  <th class="fw-bold">Asset Name</th>
+                  <th class="fw-bold">Description</th>
+                  <th class="fw-bold">Price</th>
+                  <th class="fw-bold">Quantity</th>
+                  <th class="fw-bold">Action</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
     <div layout:fragment="script">
-        <script th:src="@{/js/csrfToken.js}"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script th:src="@{/js/finance/review-subasset.js}"></script>
+      <script th:src="@{/js/csrfToken.js}"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script th:src="@{/js/finance/review-subasset.js}"></script>
     </div>
-</body>
-
+  </body>
 </html>
