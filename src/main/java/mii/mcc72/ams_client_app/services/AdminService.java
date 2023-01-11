@@ -9,11 +9,14 @@ import mii.mcc72.ams_client_app.models.dto.ReportDTO;
 import mii.mcc72.ams_client_app.models.dto.ResponseData;
 import mii.mcc72.ams_client_app.models.dto.ReviewAssetDTO;
 import mii.mcc72.ams_client_app.models.dto.ReviewRentDTO;
+import mii.mcc72.ams_client_app.util.ExcelHelper;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -41,6 +44,12 @@ public class AdminService {
     public User changeStatus(int id) {
         return restTemplate.exchange("http://localhost:8088/api/v1/admin/change-status/"+id, HttpMethod.PUT,null,
                 new ParameterizedTypeReference<User>() {
+                }).getBody();
+    }
+
+    public ResponseData<List<User>> registerFinanceFromExcel(List<User> users){
+        return restTemplate.exchange("http://localhost:8088/api/excel/regis-finance", HttpMethod.POST, new HttpEntity<>(users),
+                new ParameterizedTypeReference<ResponseData<List<User>>>() {
                 }).getBody();
     }
 }
