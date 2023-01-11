@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import mii.mcc72.ams_client_app.models.dto.RegistrationDTO;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -15,7 +16,6 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import mii.mcc72.ams_client_app.models.Employee;
-import mii.mcc72.ams_client_app.models.User;
 
 public class ExcelHelper {
     public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
@@ -31,14 +31,14 @@ public class ExcelHelper {
         return true;
     }
 
-    public static List<User> excelToUsers(InputStream is) {
+    public static List<RegistrationDTO> excelToUsers(InputStream is) {
         try {
             Workbook workbook = WorkbookFactory.create(is);
 
             Sheet sheet = workbook.getSheetAt(0);
             Iterator<Row> rows = sheet.iterator();
 
-            List<User> users = new ArrayList<User>();
+            List<RegistrationDTO> registrationDTOS = new ArrayList<RegistrationDTO>();
 
             int rowNumber = 0;
             while (rows.hasNext()) {
@@ -49,48 +49,44 @@ public class ExcelHelper {
                     continue;
                 }
                 Iterator<Cell> cellsInRow = currentRow.iterator();
-                Employee employee = new Employee();
-                User user = new User();
-//                Department department = new Department();
+                RegistrationDTO registrationDTO = new RegistrationDTO();
                 int cellIdx = 0;
                 while (cellsInRow.hasNext()) {
                     Cell currentCell = cellsInRow.next();
                     DataFormatter df = new DataFormatter();
                     switch (cellIdx) {
-                        // case 0:
-                        //     break;
+
 
                         case 0:
-                            employee.setFirstName(df.formatCellValue(currentCell));
                             break;
-
                         case 1:
-                            employee.setLastName(df.formatCellValue(currentCell));
+                            registrationDTO.setFirstName(df.formatCellValue(currentCell));
+                            break;
+                        case 2:
+                            registrationDTO.setLastName(df.formatCellValue(currentCell));
                             break;
 
-                        case 2:
-//
-                            employee.setPhoneNumber(df.formatCellValue(currentCell));
-                            break;
                         case 3:
-                            user.setEmail(df.formatCellValue(currentCell));
+                            registrationDTO.setPhoneNumber(df.formatCellValue(currentCell));
                             break;
                         case 4:
-                            user.setUsername(df.formatCellValue(currentCell));
+                            registrationDTO.setEmail(df.formatCellValue(currentCell));
                             break;
                         case 5:
-                            user.setPassword(df.formatCellValue(currentCell));
+                            registrationDTO.setUsername(df.formatCellValue(currentCell));
+                            break;
+                        case 6:
+                            registrationDTO.setPassword(df.formatCellValue(currentCell));
                             break;
                         default:
                             break;
                     }
                     cellIdx++;
                 }
-                user.setEmployee(employee);
-                users.add(user);
+                registrationDTOS.add(registrationDTO);
             }
             workbook.close();
-            return users;
+            return registrationDTOS;
         } catch (IOException e) {
             throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
         }

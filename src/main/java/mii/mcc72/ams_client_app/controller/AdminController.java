@@ -82,12 +82,12 @@ public class AdminController {
     @PostMapping("/uploadExcelFinance")
     public RedirectView uploadExcelFinance(@RequestParam("file") MultipartFile multipartFile) throws IOException {
         if (ExcelHelper.hasExcelFormat(multipartFile)) {
-            List<User> users = ExcelHelper.excelToUsers(multipartFile.getInputStream());
-            System.out.println("Output Excel : " + users);
-            adminService.registerFinanceFromExcel(users);
+            List<RegistrationDTO> registrationDTOS = ExcelHelper.excelToUsers(multipartFile.getInputStream());
+            System.out.println("Output Excel : " + registrationDTOS);
+            adminService.registerFinanceFromExcel(registrationDTOS);
             System.out.println("Upload Berhasil");
         }
-        return new RedirectView("/admin/register-finance", true);
+        return new RedirectView("/admin/list-user", true);
     }
 
     @GetMapping("/available")

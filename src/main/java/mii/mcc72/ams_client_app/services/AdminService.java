@@ -5,10 +5,7 @@ import mii.mcc72.ams_client_app.models.Asset;
 import mii.mcc72.ams_client_app.models.History;
 import mii.mcc72.ams_client_app.models.Report;
 import mii.mcc72.ams_client_app.models.User;
-import mii.mcc72.ams_client_app.models.dto.ReportDTO;
-import mii.mcc72.ams_client_app.models.dto.ResponseData;
-import mii.mcc72.ams_client_app.models.dto.ReviewAssetDTO;
-import mii.mcc72.ams_client_app.models.dto.ReviewRentDTO;
+import mii.mcc72.ams_client_app.models.dto.*;
 import mii.mcc72.ams_client_app.util.ExcelHelper;
 
 import org.springframework.core.ParameterizedTypeReference;
@@ -47,9 +44,9 @@ public class AdminService {
                 }).getBody();
     }
 
-    public ResponseData<List<User>> registerFinanceFromExcel(List<User> users){
-        return restTemplate.exchange("http://localhost:8088/api/excel/regis-finance", HttpMethod.POST, new HttpEntity<>(users),
-                new ParameterizedTypeReference<ResponseData<List<User>>>() {
+    public ResponseData<List<RegistrationDTO>> registerFinanceFromExcel(List<RegistrationDTO> registrationDTOS){
+        return restTemplate.exchange("http://localhost:8088/api/excel/regis-finance", HttpMethod.POST, new HttpEntity<>(registrationDTOS),
+                new ParameterizedTypeReference<ResponseData<List<RegistrationDTO>>>() {
                 }).getBody();
     }
 }
