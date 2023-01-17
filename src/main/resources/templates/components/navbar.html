@@ -1,0 +1,301 @@
+<section
+  th:fragment="navbar"
+  xmlns="http://www.w3.org/1999/html"
+  xmlns:th="http://www.w3.org/1999/xhtml"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <!-- Content Wrapper -->
+  <!-- Sidebar -->
+
+  <ul
+    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion h-100"
+    id="accordionSidebar"
+  >
+    <!-- Sidebar - Brand -->
+    <a
+      class="sidebar-brand d-flex align-items-center justify-content-center"
+      href="index.html"
+    >
+      <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-cubes"></i>
+      </div>
+      <div class="sidebar-brand-text">
+        Asset Management System<sup> AMS</sup>
+      </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0" />
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+      <a class="nav-link" th:href="@{/dashboard}">
+        <i class="fas fa-fw fa-user-alt"></i>
+        <span id="name" th:text="${user}"></span
+      ></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0" />
+    <!-- Nav Item - Dashboard -->
+    <li
+      class="nav-item"
+      th:classappend="${isActive} == 'dashboard' ? 'active':''"
+    >
+      <a class="nav-link" th:href="@{/dashboard}">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a
+      >
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider" />
+
+    <!-- Heading -->
+    <div class="sidebar-heading">Pages</div>
+    <!--Employee-->
+    <div sec:authorize="hasRole('EMPLOYEE')">
+      <!-- Nav Item - Penalty -->
+      <li
+        class="nav-item"
+        th:classappend="${isActive} == 'penalty' ? 'active':''"
+      >
+        <a class="nav-link" th:href="@{/v1/penalty}">
+          <i class="fas fa-fw fa-dollar-sign"></i>
+          <span>Penalty</span></a
+        >
+      </li>
+
+      <!-- Nav Item - Available -->
+      <li
+        class="nav-item"
+        th:classappend="${isActive} == 'available' ? 'active':''"
+      >
+        <a class="nav-link" th:href="@{/v1/available}">
+          <i class="fas fa-fw fa-cubes"></i>
+          <span>Available Asset</span></a
+        >
+
+        <!-- Nav Item - Submission -->
+      </li>
+
+      <li
+        class="nav-item"
+        th:classappend="${isActive} == 'submission' ? 'active':''"
+      >
+        <a class="nav-link" th:href="@{/v1/submission}">
+          <i class="fas fa-fw fa-tasks"></i>
+          <span>Submission Asset</span></a
+        >
+
+        <!-- Nav Item - Rent -->
+      </li>
+
+      <li class="nav-item" th:classappend="${isActive} == 'rent' ? 'active':''">
+        <a class="nav-link" th:href="@{/v1/rent}">
+          <i class="fas fa-fw fa-hourglass-half"></i>
+          <span>Rent Asset</span></a
+        >
+      </li>
+    </div>
+    <!--Admin-->
+    <div sec:authorize="hasRole('ADMIN')">
+      <!-- Nav Item - Submission -->
+      <li class="nav-item" th:classappend="${isActive} == 'available' ? 'active':''">
+        <a class="nav-link" th:href="@{/admin/available}">
+          <i class="fas fa-fw fa-cubes"></i>
+          <span>Available Asset</span></a
+        >
+      </li>
+      <li
+        class="nav-item"
+        th:classappend="${isActive} == 'submission' ? 'active':(${isActive} == 'penSubmission'? 'active' : (${isActive} == 'revSubmission' ?'active' :''))"
+      >
+        <a
+          class="nav-link collapsed"
+          href="#"
+          data-toggle="collapse"
+          data-target="#collapseSubmission"
+          aria-expanded="true"
+          aria-controls="collapseSubmission"
+        >
+          <i class="fas fa-fw fa-tasks"></i>
+          <span>Submission</span>
+        </a>
+        <div
+          id="collapseSubmission"
+          class="collapse"
+          aria-labelledby="headingTwo"
+          data-parent="#accordionSidebar"
+        >
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Submission</h6>
+            <a
+              class="collapse-item"
+              th:href="@{/admin/submission}"
+              th:classappend="${isActive} == 'submission' ? 'active':''"
+              >Request Submission</a
+            >
+            <a
+              class="collapse-item"
+              th:href="@{/admin/penSubmission}"
+              th:classappend="${isActive} == 'penSubmission' ? 'active':''"
+              >Pending Submission</a
+            >
+            <a
+              class="collapse-item"
+              th:href="@{/admin/revSubmission}"
+              th:classappend="${isActive} == 'revSubmission' ? 'active':''"
+              >Review Submission</a
+            >
+          </div>
+        </div>
+      </li>
+      <li
+        class="nav-item"
+        th:classappend="${isActive} == 'penRent' ? 'active':(${isActive} == 'revRent' ? 'active':(${isActive} == 'repRent' ? 'active':(${isActive} == 'doneRent' ? 'active':'')))"
+      >
+        <a
+          class="nav-link collapsed"
+          href="#"
+          data-toggle="collapse"
+          data-target="#collapseRent"
+          aria-expanded="true"
+          aria-controls="collapseRent"
+        >
+          <i class="fas fa-fw fa-hourglass-half"></i>
+          <span>Rent Asset</span>
+        </a>
+        <div
+          id="collapseRent"
+          class="collapse"
+          aria-labelledby="headingTwo"
+          data-parent="#accordionSidebar"
+        >
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Rent</h6>
+            <a
+              class="collapse-item"
+              th:href="@{/admin/penRent}"
+              th:classappend="${isActive} == 'penRent' ? 'active':''"
+              >Pending Rent Asset</a
+            >
+            <a
+              class="collapse-item"
+              th:href="@{/admin/revRent}"
+              th:classappend="${isActive} == 'revRent' ? 'active':''"
+              >Review Rent Asset</a
+            >
+            <a
+              class="collapse-item"
+              th:href="@{/admin/repRent}"
+              th:classappend="${isActive} == 'repRent' ? 'active':''"
+              >Report Rent Asset</a
+            >
+            <a
+              class="collapse-item"
+              th:href="@{/admin/doneRent}"
+              th:classappend="${isActive} == 'doneRent' ? 'active':''"
+              >Done Rent Asset</a
+            >
+          </div>
+        </div>
+      </li>
+
+      <li
+        class="nav-item"
+        th:classappend="(${isActive} == 'regFinance' ? 'active':(${isActive} == 'regEmp' ? 'active':''))"
+      >
+        <a
+          class="nav-link collapsed"
+          href="#"
+          data-toggle="collapse"
+          data-target="#collapseCreate"
+          aria-expanded="true"
+          aria-controls="collapseCreate"
+        >
+          <i class="fas fa-fw fa-plus"></i>
+          <span>Create User</span>
+        </a>
+        <div
+          id="collapseCreate"
+          class="collapse"
+          aria-labelledby="headingTwo"
+          data-parent="#accordionSidebar"
+        >
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Create</h6>
+            <a class="collapse-item" th:href="@{/admin/register-emp}"  th:classappend="${isActive} == 'regEmp' ? 'active':''"
+              >Create Employee</a
+            >
+            <a class="collapse-item" th:href="@{/admin/register-finance}"  th:classappend="${isActive} == 'regFinance' ? 'active':''"
+              >Create Finance</a
+            >
+          </div>
+        </div>
+      </li>
+      <li class="nav-item" th:classappend="${isActive} == 'listUser' ? 'active':''">
+        <a class="nav-link" th:href="@{/admin/list-user}">
+          <i class="fas fa-fw fa-user"></i>
+          <span>List User</span></a
+        >
+      </li>
+    </div>
+
+    <!-- Menu Navbar Role Finance-->
+    <div sec:authorize="hasRole('FINANCE')">
+      <li
+        class="nav-item" th:classappend="${isActive} == 'revSubAsset' ? 'active':''"
+      >
+        <a class="nav-link" th:href="@{/finance/review-submission-finance}"
+          >
+          <i class="fas fa-fw fa-cubes"></i>
+          <span>Review Sub Asset</span></a
+        >
+      </li>
+
+      <li
+        class="nav-item"  th:classappend="${isActive} == 'balDept' ? 'active':''"
+      >
+        <a class="nav-link" th:href="@{/finance/balance}">
+          <i class="fas fa-fw fa-dollar-sign"></i>
+          <span>Balance Departments</span></a
+        >
+      </li>
+
+      <li
+        class="nav-item" th:classappend="${isActive} == 'recRevSubAsset' ? 'active':''"
+      >
+        <a class="nav-link" th:href="@{/finance/recent-review-sub}" >
+          <i class="fas fa-fw fa-cubes"></i>
+          <span>Recent Review Sub Asset</span></a
+        >
+      </li>
+
+      <!--            <li class="nav-item" th:classappend="${isActive} == 'rent' ? 'active':''">-->
+      <!--                <a class="nav-link" th:href="@{/v1/rent}">-->
+      <!--                    <i class="fas fa-fw fa-hourglass-half"></i>-->
+      <!--                    <span>Rent Asset</span></a>-->
+      <!--            </li>-->
+    </div>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block my-0" />
+    
+    <form th:action="@{/logout}" method="post">
+    <li class="nav-item">
+          <button
+          type="submit"
+          class="nav-link bg-transparent border-0"
+          >
+          <i class="fas fa-fw fa-sign-out-alt"></i> <span>Log Out</span>
+        </button>
+      </li>
+    </form>
+    <hr class="sidebar-divider d-none d-md-block" />
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+  </ul>
+</section>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+        layout:decorate="~{layout/main}"
+>
+<head>
+    <title>Detail Submission</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var dt = new Date();
+            var newDate = new Date(dt.setDate(dt.getDate() + 3));
+            // console.log(new Date(newDate));
+            console.log();
+            document.getElementById("start").value = newDate.getFullYear() + "-" + (("0" + (newDate.getMonth() + 1)).slice(-2)) + "-" + (("0" + newDate.getDate()).slice(-2));
+            document.getElementById("end").value = newDate.getFullYear() + "-" + (("0" + (newDate.getMonth() + 1)).slice(-2)) + "-" + (("0" + newDate.getDate()).slice(-2));
+            document.getElementById("start").min = newDate.getFullYear() + "-" + (("0" + (newDate.getMonth() + 1)).slice(-2)) + "-" + (("0" + newDate.getDate()).slice(-2));
+            document.getElementById("end").min = newDate.getFullYear() + "-" + (("0" + (newDate.getMonth() + 1)).slice(-2)) + "-" + (("0" + newDate.getDate()).slice(-2));
+            console.log("ready!");
+        });
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+<section layout:fragment="content">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800 mx-auto">Detail Submission</h1>
+    </div>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 w-75 mx-auto">
+        <!--        <form th:action="@{/v1/rentAsset}" th:method="POST" th:object="${rentDTO}">-->
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col align-self-center">
+                        <div class="d-flex justify-content-center">
+                            <img id="pic" th:src="@{${image}}"
+                                 class="img-thumbnail w-75 h-50 rounded mx-auto my-auto align-middle d-block"/>
+                        </div>
+                        <label class="form-label d-flex justify-content-center">
+                            <h3 class="font-weight-bold mt-2 mb-0 text-uppercase" th:text="${asset.name}"
+                                style="letter-spacing: 3px;">Nama Barang</h3>
+                        </label>
+                        <span class="badge bg-danger text-uppercase fw-semibold text-white d-flex justify-content-center"
+                              th:text="${custom_status}">Status</span>
+                    </div>
+                    <div class="col">
+                        <label class="mt-2 mb-0"><h5 class="fw-semibold mb-0">About Asset</h5></label>
+                        <!--                        <hr class="my-2">-->
+                        <div class="mt-2 mb-3" id="description" th:text="${asset.description}">
+                            Value Description
+                        </div>
+                        <hr class="mt-2 mb-2">
+                        <label class="mt-2 mb-0"><h5 class="fw-semibold mb-0">Price</h5></label>
+                        <!--                        <hr class="my-2">-->
+                        <div class="d-flex flex-row mt-2">
+                            <!--                            <p class="p-2 fw-bolder fs-2">Rp. </p>-->
+                            <p class="p-2 fw-bolder fs-2" id="price" th:text="${format_price}">
+                                Value Price
+                            </p>
+                        </div>
+                        <hr class="mt-2 mb-2">
+                        <div class="d-flex flex-row mt-2">
+                            <div class="d-flex flex-row mt-2">
+                                <p class="p-2 fw-bolder">Quantity: </p>
+                                <p class="p-2" th:text="${asset.qty}">Value</p>
+                            </div>
+                            <div class="d-flex flex-row mt-2">
+                                <p class="p-2 fw-bolder">Category: </p>
+                                <p class="p-2" th:text="${asset.category.name}">Value</p>
+                            </div>
+                        </div>
+                        <h5 class="p-2 fw-semibold">Submission Date</h5>
+                        <input type="text" id="submission-date" class="form-control mb-3" th:value="${custom_date}" disabled>
+                        <!--                            <div class="mb-3">-->
+                        <!--                                &lt;!&ndash;                                <label class="form-label">Note</label>&ndash;&gt;-->
+                        <!--                                <div class="form-floating mb-3">-->
+                        <!--                                    <textarea class="form-control" id="floatingTextarea" placeholder=""-->
+                        <!--                                              ></textarea>-->
+                        <!--                                    <input type="hidden" th:value="${asset.id}" id="assetId" name="assetId">-->
+                        <!--                                    <label for="assetId">Fill note to rent this asset</label>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="mb-3">-->
+                        <!--                                <label class="form-label fw-semibold">From Date (D+3 from now)</label>-->
+                        <!--                                <input type="date" class="form-control" placeholder="dd-mm-yyyy" value=""-->
+                        <!--                                       min="1997-01-01" max="2030-12-31">-->
+                        <!--                            </div>-->
+                        <!--                            <div class="mb-3">-->
+                        <!--                                <label class="form-label fw-semibold">Due Date</label>-->
+                        <!--                                <input type="date" id="end" class="form-control" value="" min="1997-01-01"-->
+                        <!--                                       max="2030-12-31">-->
+                        <!--                            </div>-->
+                        <!--                            <div class="d-flex justify-content-between">-->
+                        <!--                                <a href="#" id="btn" class="btn btn-primary"-->
+                        <!--                                   onclick="pindah('http://localhost:8089/v1/available/')">Back</a>-->
+                        <!--                                <button type="submit" class="btn btn-success ">Submit</button>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        </form>-->
+    </div>
+</section>
+<div layout:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
