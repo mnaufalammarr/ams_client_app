@@ -14,7 +14,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .antMatchers("/css/**","/js/**","/img/**").permitAll()
+                .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -22,9 +22,6 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login")
                 .loginProcessingUrl("/login?error")
                 .successForwardUrl("/dashboard")
-//                .failureForwardUrl("/login?error")
-//                .defaultSuccessUrl("/")
-//                .failureUrl("/login?error")
                 .permitAll()
                 .and()
                 .logout()

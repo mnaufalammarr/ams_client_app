@@ -157,7 +157,7 @@ $('#tableAdmRevSubmission').DataTable({
                 case "PENDING_FINANCE":
                     status = "APPROVED"
                     break;
-                    default :
+                default:
                     status = data.approvedStatus
             }
             // let status = data.approvedStatus == "PENDING_ADMIN" ? "PENDING" : (data.approvedStatus == "PENDING_FINANCE" ? "APPROVED" : data.approvedStatus);
@@ -181,27 +181,28 @@ $('#tableAdmAvailable').DataTable({
             console.log(data);
             return meta.row + 1
         }
-        },{
-            data:'name'
-        },{
-            data:'qty'
-        },{
-            data:'description'
-        },{
-            data:null,
-            render: (data, type, row, meta) => {
-                return dateFormat(data.date,'dd-MM-yyyy')
-            }
-        },{
-            data:'category.name'
-        },{
-            data:null,
-            render: (data, type, row, meta) => {
-                // console.log(data)
-                return rupiah(data.price)
-            }
+    }, {
+        data: 'name'
+    }, {
+        data: 'qty'
+    }, {
+        data: 'description'
+    }, {
+        data: null,
+        render: (data, type, row, meta) => {
+            return dateFormat(data.date, 'dd-MM-yyyy')
+        }
+    }, {
+        data: 'category.name'
+    }, {
+        data: null,
+        render: (data, type, row, meta) => {
+            // console.log(data)
+            return rupiah(data.price)
+        }
     }]
 })
+
 function reviewReqAsset(id, value) {
     var status = value == "PENDING_FINANCE" ? "APPROVED" : "DENIED";
     Swal.fire({

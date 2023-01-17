@@ -104,8 +104,7 @@ $('#tableAdmRevRent').DataTable({
             </button>`;
             }
         }
-    }
-    ]
+    }]
 })
 $('#tableAdmRepRent').DataTable({
     ajax: {
@@ -119,37 +118,37 @@ $('#tableAdmRepRent').DataTable({
             console.log(data);
             return meta.row + 1
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
-            return camelize(data[0])+" " + camelize(data[1]);
+            return camelize(data[0]) + " " + camelize(data[1]);
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
             return data[2];
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
             return data[3] + " karena " + data[4];
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
             return `<strong class="fw-bold my-auto" style="color: red;">${rupiah(data[5])}</strong>`
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
             return dateFormat(data[6], 'dd-MM-yyyy');
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
             return dateFormat(data[7], 'dd-MM-yyyy');
         }
-    },{
+    }, {
         data: null,
         render: (data, type, row, meta) => {
             return dateFormat(data[8], 'dd-MM-yyyy');
@@ -276,12 +275,12 @@ function reviewReqRent(id, value) {
     })
 }
 
-function beforeCreate(id){
+function beforeCreate(id) {
     $('#reportRentId').val(id);
     $('#reportRent').modal('show');
 }
 
-function createReport(){
+function createReport() {
     let id = $('#reportRentId').val();
     let date = $('#reportRentDate').val();
     let damage = $('#reportRentDamage').val();
@@ -304,11 +303,11 @@ function createReport(){
                 dataType: "JSON",
                 beforeSend: addCsrfToken(),
                 data: JSON.stringify({
-                    dateAccident:date,
-                    descDamage:damage,
-                    descIncident:incident,
-                    penalty:penalty,
-                    adminId:1
+                    dateAccident: date,
+                    descDamage: damage,
+                    descIncident: incident,
+                    penalty: penalty,
+                    adminId: 1
                 }),
                 contentType: "application/json",
                 success: result => {
@@ -317,11 +316,11 @@ function createReport(){
 
                     $('#reportRent').modal('hide')
                     $('#tableAdmRevRent').DataTable().ajax.reload()
-                   $('#reportRentId').val("")
-                   $('#reportRentDate').val("")
-                   $('#reportRentDamage').val("")
-                   $('#reportRentIncident').val("")
-                   $('#reportRentPenalty').val("")
+                    $('#reportRentId').val("")
+                    $('#reportRentDate').val("")
+                    $('#reportRentDamage').val("")
+                    $('#reportRentIncident').val("")
+                    $('#reportRentPenalty').val("")
                     Swal.fire({
                         position: 'center',
                         icon: 'success',

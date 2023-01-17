@@ -7,7 +7,6 @@ $('#tableRent').DataTable({
     columns: [{
         data: null,
         render: (data, type, row, meta) => {
-            // console.log(data)
             return `
                  <div class="card mh-50 m-3">
                              <div style="width:100%; height:17rem; text-align:center">

@@ -19,11 +19,11 @@ import mii.mcc72.ams_client_app.models.Employee;
 
 public class ExcelHelper {
     public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-    static String[] HEADERs = {"first_name", "last_name", "phone_number", "email", "username", "password", "is_enabled"};
+    static String[] HEADERs = { "first_name", "last_name", "phone_number", "email", "username", "password",
+            "is_enabled" };
     static String SHEET = "Tutorials";
 
-
-    //excel format
+    // excel format
     public static boolean hasExcelFormat(MultipartFile file) {
         if (!TYPE.equals(file.getContentType())) {
             return false;
@@ -55,7 +55,6 @@ public class ExcelHelper {
                     Cell currentCell = cellsInRow.next();
                     DataFormatter df = new DataFormatter();
                     switch (cellIdx) {
-
 
                         case 0:
                             break;

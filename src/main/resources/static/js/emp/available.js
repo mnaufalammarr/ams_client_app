@@ -45,4 +45,3 @@ $('#tableAvailable').DataTable({
         }
     }]
 })
-

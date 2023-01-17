@@ -1,15 +1,17 @@
 package mii.mcc72.ams_client_app.controller.api;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import lombok.AllArgsConstructor;
 import mii.mcc72.ams_client_app.models.Asset;
 import mii.mcc72.ams_client_app.models.Department;
-import mii.mcc72.ams_client_app.models.dto.ResponseData;
-import mii.mcc72.ams_client_app.models.dto.ReviewAssetDTO;
 import mii.mcc72.ams_client_app.services.EmployeeService;
 import mii.mcc72.ams_client_app.services.FinanceService;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/finance/")
